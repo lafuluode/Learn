@@ -1,0 +1,47 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Default Local Group
+  m_EditorClassIdentifier: 
+  m_GroupName: Default Local Group
+  m_Data:
+    m_SerializedData: []
+  m_GUID: de51d4d6afd3c8148845eecbc032c9e4
+  m_SerializeEntries:
+  - m_GUID: 6838cf736a3a58d4c840be0a2a9f3a6c
+    m_Address: lesson/sprite/demo
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 74ee4b369fcf8be409ea29b3f6b9adda
+    m_Address: lesson/prefab/castle
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8ff5267692b9f1f40a097559ec0b9078
+    m_Address: lesson/scene/addressables-lesson
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: aa3a414fca16f354bbb33dca38f1dfdc
+    m_Address: lesson/prefab/castle-rule
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - preload
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: baf98f39c72065f44b1a48018288afc5, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 17467a7dd3eb2634a86c66879818ba03, type: 2}
+    - {fileID: 11400000, guid: 2032ef748dd15c54ea523341ff12ea7f, type: 2}

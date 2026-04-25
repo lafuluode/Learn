@@ -1,0 +1,1720 @@
+fileFormatVersion: 2
+guid: f499bb76dba928943abce4215b2606f4
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: quest_ui_0
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 937
+        width: 78
+        height: 79
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e8e8fd5670ae8a9489c79553df076b49
+      internalID: -1974313124
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: quest_ui_1
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 939
+        width: 78
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2199dc57876c8124a9a93d575ab79638
+      internalID: 352374165
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: quest_ui_2
+      rect:
+        serializedVersion: 2
+        x: 189
+        y: 983
+        width: 109
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e12995db15d59b04da17e7a6c282fba1
+      internalID: -1119334878
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: quest_ui_3
+      rect:
+        serializedVersion: 2
+        x: 316
+        y: 987
+        width: 47
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fb648927ccfc4d5479a4be2fdc4f4889
+      internalID: -1944098983
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: quest_ui_4
+      rect:
+        serializedVersion: 2
+        x: 364
+        y: 986
+        width: 148
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b33c5b12f2804764a9193250ebab5d40
+      internalID: -1286798404
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: quest_ui_5
+      rect:
+        serializedVersion: 2
+        x: 520
+        y: 966
+        width: 62
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3d355afe969d5824295d10b7225a95b5
+      internalID: -1615879578
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: quest_ui_6
+      rect:
+        serializedVersion: 2
+        x: 588
+        y: 966
+        width: 62
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 198d55d57aae3b643b5162f8afa738f9
+      internalID: -293238537
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: quest_ui_7
+      rect:
+        serializedVersion: 2
+        x: 702
+        y: 965
+        width: 154
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f70c540cf6351cb4a8a63a3c33b17185
+      internalID: 542918429
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: quest_ui_8
+      rect:
+        serializedVersion: 2
+        x: 862
+        y: 965
+        width: 154
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aebc2dedd2359a345abfc101caeccc06
+      internalID: -2015250494
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: quest_ui_9
+      rect:
+        serializedVersion: 2
+        x: 214
+        y: 946
+        width: 60
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c4cbfe3c609b80f43aed2051697e8e79
+      internalID: 1393758699
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: quest_ui_10
+      rect:
+        serializedVersion: 2
+        x: 318
+        y: 949
+        width: 50
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4c2b1e0e874c3c64286c68093704c4a8
+      internalID: 1271339381
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: quest_ui_11
+      rect:
+        serializedVersion: 2
+        x: 369
+        y: 948
+        width: 98
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1e8eef5ead264644cb309bda891b5122
+      internalID: 1216573075
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: quest_ui_12
+      rect:
+        serializedVersion: 2
+        x: 527
+        y: 889
+        width: 144
+        height: 77
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9bca24ec063e751409f4a3d3dad74fe4
+      internalID: -877466192
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: quest_ui_13
+      rect:
+        serializedVersion: 2
+        x: 687
+        y: 801
+        width: 328
+        height: 155
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b2b786a30f414cd4e93e3c63d1b716f1
+      internalID: -1444568076
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: quest_ui_14
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 854
+        width: 65
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 977f07a95da11d14c8cd2e218375abd7
+      internalID: 674711860
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: quest_ui_15
+      rect:
+        serializedVersion: 2
+        x: 109
+        y: 859
+        width: 53
+        height: 59
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 94e2bb675750920468ebe8770e77cb9e
+      internalID: -491901458
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: quest_ui_16
+      rect:
+        serializedVersion: 2
+        x: 217
+        y: 907
+        width: 53
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1eeec818d644fb648b8fed6af0ca4615
+      internalID: 1625755351
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: quest_ui_17
+      rect:
+        serializedVersion: 2
+        x: 315
+        y: 899
+        width: 42
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a731332e18b423747bb6ca5d4efb75e7
+      internalID: -426440892
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: quest_ui_18
+      rect:
+        serializedVersion: 2
+        x: 365
+        y: 906
+        width: 34
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 988e641c4dc0b704cae6dff751e85065
+      internalID: -1473908072
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: quest_ui_19
+      rect:
+        serializedVersion: 2
+        x: 409
+        y: 904
+        width: 30
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ca5ee4417679d1543b910ce593d2c69d
+      internalID: -1513455867
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: quest_ui_20
+      rect:
+        serializedVersion: 2
+        x: 457
+        y: 891
+        width: 53
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 86cd8bf05e814ca43973eeef332c579f
+      internalID: 1886287393
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: quest_ui_21
+      rect:
+        serializedVersion: 2
+        x: 184
+        y: 876
+        width: 20
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 580bdbc5ff6dca547ae7d0fcec9ffdf6
+      internalID: 170797123
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: quest_ui_22
+      rect:
+        serializedVersion: 2
+        x: 228
+        y: 808
+        width: 88
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d6f2b0b54f44ca04e896b48697f2110d
+      internalID: -84869870
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: quest_ui_23
+      rect:
+        serializedVersion: 2
+        x: 334
+        y: 797
+        width: 107
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 337ed5f2ec48a3e4fa66b0daac7ed4eb
+      internalID: -1692285208
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: quest_ui_24
+      rect:
+        serializedVersion: 2
+        x: 446
+        y: 813
+        width: 225
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0a1e6522843bf464cba801e8d262c6a4
+      internalID: 1521995081
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: quest_ui_25
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 812
+        width: 120
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 847690a2720540c428c31ee262a434d5
+      internalID: 969028075
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: quest_ui_26
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 812
+        width: 23
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b34f6afc3da36d04fa512a1f37ba3dc0
+      internalID: -609269756
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: quest_ui_27
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 656
+        width: 221
+        height: 153
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4266bc7f27d58de4cafdbb4141805822
+      internalID: 69497550
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: quest_ui_28
+      rect:
+        serializedVersion: 2
+        x: 234
+        y: 666
+        width: 132
+        height: 109
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 93fe8ca8c8b19aa44aa7c8f0c7ebec93
+      internalID: 759476929
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: quest_ui_29
+      rect:
+        serializedVersion: 2
+        x: 378
+        y: 666
+        width: 132
+        height: 109
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1c6b34313b188ba4fa1b0c2f4c816a61
+      internalID: 1050462705
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: quest_ui_30
+      rect:
+        serializedVersion: 2
+        x: 528
+        y: 748
+        width: 136
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 634009afd84bde845b18c92c5aed8f88
+      internalID: 1625942175
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: quest_ui_31
+      rect:
+        serializedVersion: 2
+        x: 685
+        y: 623
+        width: 330
+        height: 157
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 173b4ed76c8b9d644a40d0710e37078a
+      internalID: 2048942271
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: quest_ui_32
+      rect:
+        serializedVersion: 2
+        x: 565
+        y: 684
+        width: 62
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: feed3a29087932d4290a50530bf9a2ff
+      internalID: 1916514529
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: quest_ui_33
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 560
+        width: 88
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7701af7d43e4c4c42a58733c0d2a8e67
+      internalID: 1468454157
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: quest_ui_34
+      rect:
+        serializedVersion: 2
+        x: 145
+        y: 563
+        width: 54
+        height: 76
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0fbb7084be0d36243bcfc5c8e9f74c07
+      internalID: -1378382430
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: quest_ui_35
+      rect:
+        serializedVersion: 2
+        x: 225
+        y: 606
+        width: 52
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fb51c4b4f964a9f4993cc6100b335af0
+      internalID: 1332800721
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: quest_ui_36
+      rect:
+        serializedVersion: 2
+        x: 297
+        y: 606
+        width: 52
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d0f4a4654143c734cb8189e69ab9c519
+      internalID: -1318893112
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: quest_ui_37
+      rect:
+        serializedVersion: 2
+        x: 368
+        y: 606
+        width: 53
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ed9a7052c3f0e1740ba4514e45fb9ce4
+      internalID: 336567758
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: quest_ui_38
+      rect:
+        serializedVersion: 2
+        x: 440
+        y: 606
+        width: 53
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 58f1ff4cf01adcb489ff7d2ac9a59e06
+      internalID: 590192394
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: quest_ui_39
+      rect:
+        serializedVersion: 2
+        x: 559
+        y: 620
+        width: 72
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e6a725ea685b6b142aa4e0c37a790e89
+      internalID: 1809857645
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: quest_ui_40
+      rect:
+        serializedVersion: 2
+        x: 221
+        y: 559
+        width: 59
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: be327fbec95f7ee4e980725b1d4f83dd
+      internalID: 1869009892
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: quest_ui_41
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 567
+        width: 29
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 52a00b3fd986f1d4cb20658f090d91d9
+      internalID: 1142370336
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: quest_ui_42
+      rect:
+        serializedVersion: 2
+        x: 324
+        y: 530
+        width: 142
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e81c13cb137d818498b3c0b404e008cc
+      internalID: -2000863126
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: quest_ui_43
+      rect:
+        serializedVersion: 2
+        x: 536
+        y: 520
+        width: 480
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8a48de298f9158a45a8eb1f5f96ce879
+      internalID: 1253633038
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: quest_ui_44
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 556
+        width: 12
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 39bd4b7452554d24783ed744a790c01a
+      internalID: 1124595123
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: quest_ui_45
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 489
+        width: 197
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b1d582e070a064a409cb201e930b2f58
+      internalID: -70159503
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: quest_ui_46
+      rect:
+        serializedVersion: 2
+        x: 536
+        y: 424
+        width: 480
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d2dde279b141368449ac86e3fc312eb7
+      internalID: 78183145
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: quest_ui_47
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 446
+        width: 107
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 14565149271d6f44b9b351c3b7e33bda
+      internalID: -1121889805
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: quest_ui_48
+      rect:
+        serializedVersion: 2
+        x: 184
+        y: 409
+        width: 54
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d6fe5686c754d87438793493c015c34b
+      internalID: 1410089286
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: quest_ui_49
+      rect:
+        serializedVersion: 2
+        x: 261
+        y: 409
+        width: 54
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bd259bb99bd5ac54fa8b8a8fe30cd749
+      internalID: -807821581
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: quest_ui_50
+      rect:
+        serializedVersion: 2
+        x: 329
+        y: 409
+        width: 54
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b3b3fe2e771f0a64193543f0f7d063c9
+      internalID: 1094928218
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: quest_ui_51
+      rect:
+        serializedVersion: 2
+        x: 398
+        y: 409
+        width: 53
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 59cde1ba6db2e3345a3de42a8a9eeede
+      internalID: 162060942
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: quest_ui_52
+      rect:
+        serializedVersion: 2
+        x: 13
+        y: 361
+        width: 72
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bc3d3fbec326b9f4ab2e2eba0b0108b9
+      internalID: -1140538695
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: quest_ui_53
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 361
+        width: 72
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ffe68105b17323040850897c78d5871c
+      internalID: -543033937
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: quest_ui_54
+      rect:
+        serializedVersion: 2
+        x: 184
+        y: 352
+        width: 37
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1471248d5a8f1a743b0176e247468fae
+      internalID: -475105973
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: quest_ui_55
+      rect:
+        serializedVersion: 2
+        x: 236
+        y: 352
+        width: 37
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5437714b80712464c81b62ddad1ff6c2
+      internalID: -1638027393
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: quest_ui_56
+      rect:
+        serializedVersion: 2
+        x: 289
+        y: 352
+        width: 37
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 34d6a4f75158f0640a870c625ab0145f
+      internalID: 989212999
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: quest_ui_57
+      rect:
+        serializedVersion: 2
+        x: 343
+        y: 352
+        width: 37
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9c06dbc9dd7e4904fa5e300684edaf9e
+      internalID: 1350095987
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: quest_ui_58
+      rect:
+        serializedVersion: 2
+        x: 536
+        y: 328
+        width: 480
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb991125c5acf6d4a913bd5c5e8eea87
+      internalID: -903311257
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: quest_ui_59
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 248
+        width: 422
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f46157f4c7e45854188d2f093b8a321b
+      internalID: -612672263
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: quest_ui_60
+      rect:
+        serializedVersion: 2
+        x: 536
+        y: 232
+        width: 480
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7a5bc53f0b48a484a893b16248ba4f29
+      internalID: 2105758725
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: quest_ui_61
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 188
+        width: 108
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 74a9657943fac144bb58c066338834f5
+      internalID: 2081527371
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: quest_ui_62
+      rect:
+        serializedVersion: 2
+        x: 123
+        y: 185
+        width: 73
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 39b819ffb45e61244a8955df7f211595
+      internalID: 1289096959
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: quest_ui_63
+      rect:
+        serializedVersion: 2
+        x: 216
+        y: 185
+        width: 57
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1145820da4153b7489d2f8f4bab7d0c1
+      internalID: 256304572
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: quest_ui_64
+      rect:
+        serializedVersion: 2
+        x: 293
+        y: 185
+        width: 73
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 48723276292f5254f9e41d801ec53a36
+      internalID: 1571278044
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: quest_ui_65
+      rect:
+        serializedVersion: 2
+        x: 536
+        y: 136
+        width: 480
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a0cc4130f0ce0c24caeecb9b473ff1a4
+      internalID: -1518971467
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: quest_ui_66
+      rect:
+        serializedVersion: 2
+        x: 25
+        y: 130
+        width: 177
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 17318594bc88ea5439e3ba6e9d36fdc0
+      internalID: 1733892944
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: quest_ui_67
+      rect:
+        serializedVersion: 2
+        x: 243
+        y: 129
+        width: 206
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: edb1b4367c7cc514a9c80d3f7f3cc3e6
+      internalID: 595725788
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: quest_ui_68
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 44
+        width: 483
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d14ae16f8696b024e894eb35f4c898a4
+      internalID: 1262371064
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: quest_ui_69
+      rect:
+        serializedVersion: 2
+        x: 536
+        y: 40
+        width: 480
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eebdbe94915a1b74dad519b4dc9261f7
+      internalID: 1832299483
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: quest_ui_70
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 8
+        width: 504
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 93469bd1ed7197649b4583cb46b45c8f
+      internalID: 1116134378
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: quest_ui_71
+      rect:
+        serializedVersion: 2
+        x: 493
+        y: 13
+        width: 6
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4c132f94c121bc24ab3793c7874bf968
+      internalID: 1370563250
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: quest_ui_72
+      rect:
+        serializedVersion: 2
+        x: 539
+        y: 8
+        width: 477
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: adda756da60427d42bee2d77dcf375eb
+      internalID: -343413393
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      quest_ui_0: -1974313124
+      quest_ui_1: 352374165
+      quest_ui_10: 1271339381
+      quest_ui_11: 1216573075
+      quest_ui_12: -877466192
+      quest_ui_13: -1444568076
+      quest_ui_14: 674711860
+      quest_ui_15: -491901458
+      quest_ui_16: 1625755351
+      quest_ui_17: -426440892
+      quest_ui_18: -1473908072
+      quest_ui_19: -1513455867
+      quest_ui_2: -1119334878
+      quest_ui_20: 1886287393
+      quest_ui_21: 170797123
+      quest_ui_22: -84869870
+      quest_ui_23: -1692285208
+      quest_ui_24: 1521995081
+      quest_ui_25: 969028075
+      quest_ui_26: -609269756
+      quest_ui_27: 69497550
+      quest_ui_28: 759476929
+      quest_ui_29: 1050462705
+      quest_ui_3: -1944098983
+      quest_ui_30: 1625942175
+      quest_ui_31: 2048942271
+      quest_ui_32: 1916514529
+      quest_ui_33: 1468454157
+      quest_ui_34: -1378382430
+      quest_ui_35: 1332800721
+      quest_ui_36: -1318893112
+      quest_ui_37: 336567758
+      quest_ui_38: 590192394
+      quest_ui_39: 1809857645
+      quest_ui_4: -1286798404
+      quest_ui_40: 1869009892
+      quest_ui_41: 1142370336
+      quest_ui_42: -2000863126
+      quest_ui_43: 1253633038
+      quest_ui_44: 1124595123
+      quest_ui_45: -70159503
+      quest_ui_46: 78183145
+      quest_ui_47: -1121889805
+      quest_ui_48: 1410089286
+      quest_ui_49: -807821581
+      quest_ui_5: -1615879578
+      quest_ui_50: 1094928218
+      quest_ui_51: 162060942
+      quest_ui_52: -1140538695
+      quest_ui_53: -543033937
+      quest_ui_54: -475105973
+      quest_ui_55: -1638027393
+      quest_ui_56: 989212999
+      quest_ui_57: 1350095987
+      quest_ui_58: -903311257
+      quest_ui_59: -612672263
+      quest_ui_6: -293238537
+      quest_ui_60: 2105758725
+      quest_ui_61: 2081527371
+      quest_ui_62: 1289096959
+      quest_ui_63: 256304572
+      quest_ui_64: 1571278044
+      quest_ui_65: -1518971467
+      quest_ui_66: 1733892944
+      quest_ui_67: 595725788
+      quest_ui_68: 1262371064
+      quest_ui_69: 1832299483
+      quest_ui_7: 542918429
+      quest_ui_70: 1116134378
+      quest_ui_71: 1370563250
+      quest_ui_72: -343413393
+      quest_ui_8: -2015250494
+      quest_ui_9: 1393758699
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
