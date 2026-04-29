@@ -1,3 +1,4 @@
+using System;
 using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.ResourceManagement.ResourceProviders;
@@ -26,7 +27,7 @@ namespace Game.Framework.Core
         /// </summary>
         /// <param name="key"></param>
         /// <returns></returns>
-        Task DownloadDependenciesAsync(string key);
+        Task DownloadDependenciesAsync(string key,IProgress<float> progress = null);
         
         /// <summary>
         /// 加载指定的资源
@@ -34,7 +35,7 @@ namespace Game.Framework.Core
         /// <typeparam name="T"></typeparam>
         /// <param name="key"></param>
         /// <returns></returns>
-        Task<T> LoadAssetAsync<T>(string key) where T : Object;
+        Task<T> LoadAssetAsync<T>(string key) where T : UnityEngine.Object;
 
         /// <summary>
         /// 加载并实例化指定的资源，返回实例化后的GameObject

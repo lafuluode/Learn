@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -53,7 +54,7 @@ namespace Game.Framework.Core
             return size;
         }
 
-        public async Task DownloadDependenciesAsync(string key)
+        public async Task DownloadDependenciesAsync(string key,IProgress<float> progress = null)
         {
             await InitializeAsync();
             if(string.IsNullOrWhiteSpace(key))
@@ -128,7 +129,7 @@ namespace Game.Framework.Core
             loadedSceneHandles.Remove(key);
             Debug.Log($"[AddressableService] 场景卸载完成: {key}");
         }
-        public async Task<T> LoadAssetAsync<T>(string key) where T : Object
+        public async Task<T> LoadAssetAsync<T>(string key) where T : UnityEngine.Object
         {
             await InitializeAsync();
 
