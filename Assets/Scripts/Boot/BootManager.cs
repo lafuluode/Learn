@@ -97,7 +97,7 @@ namespace Game.Boot
 
             var downloadProgress = new Progress<float>(value =>
             {
-                float mappedProgress = Mathf.Lerp(value, 0f, 1f);
+                float mappedProgress = Mathf.Lerp(0.1f, 0.8f,value);
                 SetProgress("下载预加载资源...", mappedProgress);
             });
 
@@ -105,6 +105,11 @@ namespace Game.Boot
                 bootConfig.PreloadGroupKey,
                 downloadProgress
                 );
+            cancellationToken.ThrowIfCancellationRequested();
+
+            SetProgress("加载主菜单...", 0.9f);
+
+            await assetService.LoadSceneAsync(bootConfig.MainMenuSceneKey);
             cancellationToken.ThrowIfCancellationRequested();
             SetProgress("启动完成", 1f);
         }

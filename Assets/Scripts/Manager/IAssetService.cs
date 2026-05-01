@@ -25,7 +25,13 @@ namespace Game.Framework.Core
         /// <summary>
         /// 下载指定资源或资源组的所有依赖项，确保它们在加载时可用
         /// </summary>
-        /// <param name="key"></param>
+        /// <param name="key">
+        /// 资源 Key、资源组 Key 或 Label。
+        /// </param>
+        /// <param name="progress">
+        /// 下载进度回调，值在0到1之间，表示下载完成的百分比。
+        /// 传null表示不在乎进度
+        /// </param>
         /// <returns></returns>
         Task DownloadDependenciesAsync(string key,IProgress<float> progress = null);
         

@@ -62,22 +62,44 @@ namespace Game.Framework.Core
                 Debug.LogError("[AddressableService] DownloadDependenciesAsync key 为空");
                 return;
             }
+
+            progress?.Report(0f);
+
             long size = await GetDownloadSizeAsync(key);
             if (size<=0)
             {
                 Debug.Log($"[AddressableService] 无需下载: {key}");
+
+                progress?.Report(1f);
                 return;
             }
             AsyncOperationHandle handle =
                 Addressables.DownloadDependenciesAsync(key,false);
-            await handle.Task;
-            if(handle.Status != AsyncOperationStatus.Succeeded)
+
+
+            try
             {
-                Addressables.Release(handle);
-                throw new System.Exception($"[AddressableService] 下载依赖失败: {key}");
+                while(!handle.IsDone)
+                {
+                    progress?.Report(handle.PercentComplete);
+                    await Task.Yield();
+                }
+                await handle.Task;
+                if (handle.Status != AsyncOperationStatus.Succeeded)
+                {
+                    Addressables.Release(handle);
+                    throw new System.Exception($"[AddressableService] 下载依赖失败: {key}");
+                }
+                progress?.Report(1f);
+                Debug.Log($"[AddressableService] 下载依赖完成: {key}");
             }
-            Addressables.Release(handle);
-            Debug.Log($"[AddressableService] 下载依赖完成: {key}");
+            finally
+            {
+                if (handle.IsValid())
+                {
+                    Addressables.Release(handle);
+                }
+            }
         }
 
         public async Task LoadSceneAsync(string key, LoadSceneMode loadMode = LoadSceneMode.Single)
