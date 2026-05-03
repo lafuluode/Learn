@@ -17,6 +17,12 @@ MonoBehaviour:
     m_SerializedData: []
   m_GUID: de51d4d6afd3c8148845eecbc032c9e4
   m_SerializeEntries:
+  - m_GUID: 1d82c5d191d4db447bb8cb2fcb729324
+    m_Address: Scene_MainMenu
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - preload
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 6838cf736a3a58d4c840be0a2a9f3a6c
     m_Address: lesson/sprite/demo
     m_ReadOnly: 0
@@ -27,11 +33,6 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - preload
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 8ff5267692b9f1f40a097559ec0b9078
-    m_Address: lesson/scene/addressables-lesson
-    m_ReadOnly: 0
-    m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: aa3a414fca16f354bbb33dca38f1dfdc
     m_Address: lesson/prefab/castle-rule

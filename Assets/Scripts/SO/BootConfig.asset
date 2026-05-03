@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84b4df0ce5cbef446a63169daae99748, type: 3}
   m_Name: BootConfig
   m_EditorClassIdentifier: 
-  preloadGroupKey: 
-  mainMenuSceneKey: 
+  preloadGroupKey: preload
+  mainMenuSceneKey: Scene_MainMenu
