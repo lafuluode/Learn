@@ -57,8 +57,14 @@ namespace Game.Framework.Core
         }
         private void Awake()
         {
-            DontDestroyOnLoad(gameObject);
+            if (instance != null && instance != this)
+            {
+                Destroy(gameObject);
+                return;
+            }
 
+            instance = this;
+            DontDestroyOnLoad(gameObject);
         }
 
 
@@ -93,6 +99,10 @@ namespace Game.Framework.Core
 
         private void Init()
         {
+            if (isInitialized)
+            {
+                return;
+            }
             RegisterSystems();
             gameSystems.Sort((a, b) => a.Priority.CompareTo(b.Priority));
 

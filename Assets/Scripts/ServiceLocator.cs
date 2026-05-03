@@ -14,11 +14,8 @@ namespace Game.Framework.Core
         public static void Register<T>(T service)
         {
             var type = typeof(T);
-            if (services.ContainsKey(type))
-            {
-                services[type] = service;
-            }
-            services.Add(type, service);
+            services[type] = service;
+
         }
         public static T Get<T>()
         {

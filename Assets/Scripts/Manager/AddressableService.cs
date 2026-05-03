@@ -19,19 +19,44 @@ namespace Game.Framework.Core
         private readonly Dictionary<string,AsyncOperationHandle<SceneInstance>> loadedSceneHandles = new();
         private readonly HashSet<GameObject> instantiatedObjects = new();
         private bool isInitialized = false;
-        public async Task InitializeAsync()
-        {
-            if (isInitialized) return;
-            AsyncOperationHandle handle = Addressables.InitializeAsync();
-            await handle.Task;
-            if(handle.Status != AsyncOperationStatus.Succeeded)
-            {
-                throw new System.Exception("[AddressableService] 资源服务初始化失败");
-            }
-            isInitialized = true;
 
-            Debug.Log("[AddressableService]资源服务初始化完成");
+        private Task initializeTask;
+        public Task InitializeAsync()
+        {
+           if(isInitialized)
+           {
+                return Task.CompletedTask;
+           }
+
+           initializeTask ??= InitializeInternalAsync();
+            return initializeTask;
         }
+
+        private async Task InitializeInternalAsync()
+        {
+            AsyncOperationHandle handle = Addressables.InitializeAsync(false);
+            try
+            {
+                await handle.Task;
+                if (handle.Status != AsyncOperationStatus.Succeeded)
+                {
+                    throw new System.Exception("[AddressableService] 资源服务初始化失败");
+                }
+                isInitialized = true;
+
+                Debug.Log("[AddressableService]资源服务初始化完成");
+            }
+            finally
+            {
+                if (handle.IsValid())
+                {
+                    Addressables.Release(handle);
+                }
+            }
+        }
+
+
+
 
         public async Task<long> GetDownloadSizeAsync(string key)
         {
