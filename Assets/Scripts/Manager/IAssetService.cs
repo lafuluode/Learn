@@ -7,7 +7,8 @@ using UnityEngine.SceneManagement;
 namespace Game.Framework.Core
 {
     /// <summary>
-    /// 资源管理接口，提供加载、实例化和释放资源的方法
+    /// 资源管理接口，提供加载、实例化、释放和场景加载
+    /// 不关心底层实现
     /// </summary>
     public interface IAssetService
     {

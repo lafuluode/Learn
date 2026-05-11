@@ -53,7 +53,7 @@ namespace Game.Framework.Core
 
         void RegisterSystems()
         {
-            RegisterSystem(new AddressableSystem());
+            RegisterSystem(new ResourceSystem());
         }
         private void Awake()
         {
