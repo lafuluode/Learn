@@ -8,6 +8,7 @@ namespace Game.Framework.Core
 {
     /// <summary>
     /// 资源管理接口，提供加载、实例化、释放和场景加载
+    /// 不负责资源版本检查、catalog 更新和下载
     /// 不关心底层实现
     /// </summary>
     public interface IAssetService
@@ -22,26 +23,7 @@ namespace Game.Framework.Core
         /// </summary>
         /// <param name="key"></param>
         /// <returns></returns>
-        Task<long> GetDownloadSizeAsync(string key);
-        /// <summary>
-        /// 下载指定资源或资源组的所有依赖项，确保它们在加载时可用
-        /// </summary>
-        /// <param name="key">
-        /// 资源 Key、资源组 Key 或 Label。
-        /// </param>
-        /// <param name="progress">
-        /// 下载进度回调，值在0到1之间，表示下载完成的百分比。
-        /// 传null表示不在乎进度
-        /// </param>
-        /// <returns></returns>
-        Task DownloadDependenciesAsync(string key,IProgress<float> progress = null);
         
-        /// <summary>
-        /// 加载指定的资源
-        /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="key"></param>
-        /// <returns></returns>
         Task<T> LoadAssetAsync<T>(string key) where T : UnityEngine.Object;
 
         /// <summary>

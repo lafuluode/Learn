@@ -13,119 +13,23 @@ using UnityEngine.SceneManagement;
 namespace Game.Framework.Core
 {
 
-    public class AddressableService : IAssetService
+    public class AddressableAssetService : IAssetService
     {
+        private readonly AddressableInitializer initializer;
         private readonly Dictionary<string, AsyncOperationHandle> loadedAssetHandles = new();
         private readonly Dictionary<string,AsyncOperationHandle<SceneInstance>> loadedSceneHandles = new();
         private readonly HashSet<GameObject> instantiatedObjects = new();
-        private bool isInitialized = false;
 
-        private Task initializeTask;
+        public AddressableAssetService(AddressableInitializer initializer)
+        {
+            this.initializer = initializer ?? throw new ArgumentNullException(nameof(initializer));
+        }
+
         public Task InitializeAsync()
         {
-           if(isInitialized)
-           {
-                return Task.CompletedTask;
-           }
-
-           initializeTask ??= InitializeInternalAsync();
-            return initializeTask;
+           return initializer.InitializeAsync();
         }
-
-        private async Task InitializeInternalAsync()
-        {
-            AsyncOperationHandle handle = Addressables.InitializeAsync(false);
-            try
-            {
-                await handle.Task;
-                if (handle.Status != AsyncOperationStatus.Succeeded)
-                {
-                    throw new System.Exception("[AddressableService] 资源服务初始化失败");
-                }
-                isInitialized = true;
-
-                Debug.Log("[AddressableService]资源服务初始化完成");
-            }
-            finally
-            {
-                if (handle.IsValid())
-                {
-                    Addressables.Release(handle);
-                }
-            }
-        }
-
-
-
-
-        public async Task<long> GetDownloadSizeAsync(string key)
-        {
-            await InitializeAsync();
-            if(string.IsNullOrEmpty(key))
-            {
-                throw new System.ArgumentException("[AddressableService] key 为空");
-            }
-            AsyncOperationHandle<long> handle = Addressables.GetDownloadSizeAsync(key);
-            await handle.Task;
-            if (handle.Status != AsyncOperationStatus.Succeeded)
-            {
-                Addressables.Release(handle);
-                throw new System.Exception($"[AddressableService] 获取下载大小失败：{key}");
-            }
-            long size = handle.Result;
-
-            Addressables.Release(handle);
-
-            return size;
-        }
-
-        public async Task DownloadDependenciesAsync(string key,IProgress<float> progress = null)
-        {
-            await InitializeAsync();
-            if(string.IsNullOrWhiteSpace(key))
-            {
-                Debug.LogError("[AddressableService] DownloadDependenciesAsync key 为空");
-                return;
-            }
-
-            progress?.Report(0f);
-
-            long size = await GetDownloadSizeAsync(key);
-            if (size<=0)
-            {
-                Debug.Log($"[AddressableService] 无需下载: {key}");
-
-                progress?.Report(1f);
-                return;
-            }
-            AsyncOperationHandle handle =
-                Addressables.DownloadDependenciesAsync(key,false);
-
-
-            try
-            {
-                while(!handle.IsDone)
-                {
-                    progress?.Report(handle.PercentComplete);
-                    await Task.Yield();
-                }
-                await handle.Task;
-                if (handle.Status != AsyncOperationStatus.Succeeded)
-                {
-                    Addressables.Release(handle);
-                    throw new System.Exception($"[AddressableService] 下载依赖失败: {key}");
-                }
-                progress?.Report(1f);
-                Debug.Log($"[AddressableService] 下载依赖完成: {key}");
-            }
-            finally
-            {
-                if (handle.IsValid())
-                {
-                    Addressables.Release(handle);
-                }
-            }
-        }
+        
 
         public async Task LoadSceneAsync(string key, LoadSceneMode loadMode = LoadSceneMode.Single)
         {

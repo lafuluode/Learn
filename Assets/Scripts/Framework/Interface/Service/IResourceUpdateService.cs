@@ -8,8 +8,9 @@ using UnityEngine;
 namespace Game.Framework.Core
 {
     /// <summary>
-    /// 资源更新服务接口，负责启动阶段的资源初始化、版本检查、资源下载等流程
-    /// 通常由 Boot 流程调用，不直接负责运行时资源实例化
+    ///资源更新服务接口
+    /// 负责资源系统初始化、Catalog 检查、Catalog 更新、资源下载和缓存处理。
+    /// 不负责资源实例化和场景加载
     /// </summary>
     public interface IResourceUpdateService
     {
@@ -18,14 +19,14 @@ namespace Game.Framework.Core
         /// 例如初始化资源系统、加载远程 Catalog等
         /// </summary>
         /// <returns></returns>
-        Task InitializeAsync();
+        Task InitializeAsync(CancellationToken cancellationToken = default);
 
         /// <summary>
         /// 检查是否存在资源目录更新
         /// 返回需要更新的 Catalog 列表
         /// </summary>
         /// <returns></returns>
-        Task<List<string>> CheckCatalogUpdateAsync();
+        Task<List<string>> CheckCatalogUpdatesAsync(CancellationToken cancellationToken = default);
 
         /// <summary>
         /// 更新资源目录
@@ -33,7 +34,7 @@ namespace Game.Framework.Core
         /// </summary>
         /// <param name="catalogs"></param>
         /// <returns></returns>
-        Task UpdateCatalogsAsync(List<string> catalogs);
+        Task UpdateCatalogsAsync(List<string> catalogs,CancellationToken cancellationToken = default);
 
         /// <summary>
         /// 获取某个资源标签或资源 Key 对应的下载大小
@@ -41,7 +42,7 @@ namespace Game.Framework.Core
         /// </summary>
         /// <param name="keyOrLabel"></param>
         /// <returns></returns>
-        Task<long> GetDownloadSizeAsync(string keyOrLabel);
+        Task<long> GetDownloadSizeAsync(string keyOrLabel, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// 下载某个资源标签或资源 Key 对应的依赖资源

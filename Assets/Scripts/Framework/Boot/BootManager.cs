@@ -19,7 +19,7 @@ namespace Game.Boot
     /// 注意：
     /// BootManager 不负责创建资源系统
     /// BootManager 不直接依赖 Addressable。
-    /// BootManager 只依赖 IAssetService 接口抽象
+    /// BootManager 只依赖 IAssetService 等接口抽象
     /// </summary>
     public class BootManager : MonoBehaviour
     {
@@ -52,12 +52,12 @@ namespace Game.Boot
             {
                 await BootAsync(cancellationTokenSource.Token);
             }
-            catch(OperationCanceledException)
+            catch (OperationCanceledException)
             {
 
                 Debug.Log("Boot flow was cancelled.");
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 Debug.LogException(ex);
                 ShowBootError("启动失败，请检查网络或资源配置");
@@ -93,17 +93,19 @@ namespace Game.Boot
             var assetService = ResolveAssetService();
             cancellationToken.ThrowIfCancellationRequested();
 
-            SetProgress("检查预加载资源...",0.1f);
+            SetProgress("检查预加载资源...", 0.1f);
 
-            var downloadProgress = new Progress<float>(value =>
+            var downloadProgress = new Progress<ResourceDownloadProgress>(value =>
             {
-                float mappedProgress = Mathf.Lerp(0.1f, 0.8f,value);
+                float mappedProgress = Mathf.Lerp(0.1f, 0.8f, value.Percent);
                 SetProgress("下载预加载资源...", mappedProgress);
             });
 
-            await assetService.DownloadDependenciesAsync(
+            var updateService = ResolveResourceUpdateService();
+            await updateService.DownloadDependenciesAsync(
                 bootConfig.PreloadGroupKey,
-                downloadProgress
+                downloadProgress,
+                cancellationToken
                 );
             cancellationToken.ThrowIfCancellationRequested();
 
@@ -114,21 +116,6 @@ namespace Game.Boot
             SetProgress("启动完成", 1f);
         }
 
-        /// <summary>
-        /// 获取资源服务实例
-        /// </summary>
-        /// <returns></returns>
-        private IAssetService ResolveAssetService()
-        {
-            if (ServiceLocator.TryGet<IAssetService>(out var assetService))
-            {
-                return assetService;
-            }
-            else
-            {
-                throw new InvalidOperationException("IAssetService 没有被注册在 ServiceLocator 中.");
-            }
-        }
         /// <summary>
         /// 校验启动配置是否合法
         /// 
@@ -144,19 +131,19 @@ namespace Game.Boot
         /// <exception cref="InvalidOperationException"></exception>
         private void ValidateConfig()
         {
-            if(bootConfig == null)
+            if (bootConfig == null)
             {
                 throw new InvalidOperationException("BootConfig is not assigned in BootManager.");
             }
-            if(string.IsNullOrWhiteSpace(bootConfig.PreloadGroupKey))
+            if (string.IsNullOrWhiteSpace(bootConfig.PreloadGroupKey))
             {
-                throw new InvalidOperationException("BootConfig.PreloadGroupKey is empty.");          
+                throw new InvalidOperationException("BootConfig.PreloadGroupKey is empty.");
             }
             if (string.IsNullOrWhiteSpace(bootConfig.MainMenuSceneKey))
             {
                 throw new InvalidOperationException("BootConfig.MainMenuSceneKey is empty.");
             }
-            if(loadingView == null)
+            if (loadingView == null)
             {
                 Debug.LogWarning("BootLoadingView is not assigned in BootManager. Progress will not be displayed.");
             }
@@ -202,5 +189,39 @@ namespace Game.Boot
             cancellationTokenSource?.Dispose();
             cancellationTokenSource = null;
         }
+
+        #region 获取服务实例
+        /// <summary>
+        /// 获取资源管理服务实例
+        /// </summary>
+        /// <returns></returns>
+        private IAssetService ResolveAssetService()
+        {
+            if (ServiceLocator.TryGet<IAssetService>(out var assetService))
+            {
+                return assetService;
+            }
+            else
+            {
+                throw new InvalidOperationException("IAssetService 没有被注册在 ServiceLocator 中.");
+            }
+        }
+        /// <summary>
+        /// 获取资源更新服务实例
+        /// </summary>
+        /// <returns></returns>
+        /// <exception cref="InvalidOperationException"></exception>
+        private IResourceUpdateService ResolveResourceUpdateService()
+        {
+            if (ServiceLocator.TryGet<IResourceUpdateService>(out var updateService))
+            {
+                return updateService;
+            }
+            else
+            {
+                throw new InvalidOperationException("IResourceUpdateService 没有被注册在 ServiceLocator 中.");
+            }
+        }
+        #endregion
     }
 }
