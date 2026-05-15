@@ -73,7 +73,7 @@ namespace Game.Boot
         /// 
         /// 职责：
         /// 1、 校验 BootConfig 和 View 配置
-        /// 2、 获取资源服务 IAssetService
+        /// 2、 获取资源服务
         /// 3、 下载预加载资源
         /// 4、 加载主菜单场景
         /// 
@@ -90,25 +90,58 @@ namespace Game.Boot
             loadingView?.HideError();
 
             SetProgress("准备启动...", 0f);
+            //获取资源服务实例
             var assetService = ResolveAssetService();
-            cancellationToken.ThrowIfCancellationRequested();
-
-            SetProgress("检查预加载资源...", 0.1f);
-
-            var downloadProgress = new Progress<ResourceDownloadProgress>(value =>
-            {
-                float mappedProgress = Mathf.Lerp(0.1f, 0.8f, value.Percent);
-                SetProgress("下载预加载资源...", mappedProgress);
-            });
-
             var updateService = ResolveResourceUpdateService();
-            await updateService.DownloadDependenciesAsync(
-                bootConfig.PreloadGroupKey,
-                downloadProgress,
-                cancellationToken
-                );
+            //1. 初始化资源更新服务，确保它准备就绪，可以执行后续的资源检查和下载操作
+            SetProgress("初始化资源系统...", 0.05f);
+            await updateService.InitializeAsync(cancellationToken);
+
             cancellationToken.ThrowIfCancellationRequested();
 
+            //2. 检查 Catalog 更新
+            SetProgress("检查资源目录更新...", 0.1f);
+
+            List<string> catalogs = await updateService.CheckCatalogUpdatesAsync(cancellationToken);
+
+            cancellationToken.ThrowIfCancellationRequested();
+
+            //3. 如果有更新，就更新Catalog
+            if(catalogs!=null&&catalogs.Count > 0)
+            {
+                    SetProgress("更新资源目录...", 0.2f);
+                    await updateService.UpdateCatalogsAsync(catalogs, cancellationToken);
+            }
+            cancellationToken.ThrowIfCancellationRequested();
+
+            //4. 获取预加载资源的下载大小，展示给用户
+            SetProgress("检查预加载资源...", 0.3f);
+            long downloadSize = await updateService.GetDownloadSizeAsync(bootConfig.PreloadGroupKey, cancellationToken);
+
+            cancellationToken.ThrowIfCancellationRequested();
+
+            if(downloadSize<=0)
+            {
+                SetProgress("预加载资源已是最新", 0.8f);
+            }
+            else
+            {
+                var downloadProgress = new Progress<ResourceDownloadProgress>(value =>
+                {
+                    float mappedProgreess = Mathf.Lerp(0.3f, 0.8f, value.Percent);
+                    SetProgress(value.Message, mappedProgreess);
+                });
+
+                await updateService.DownloadDependenciesAsync(
+                        bootConfig.PreloadGroupKey,
+                        downloadProgress,
+                        cancellationToken
+                        );
+            }
+
+           
+            cancellationToken.ThrowIfCancellationRequested();
+            //5. 加载主菜单场景
             SetProgress("加载主菜单...", 0.9f);
 
             await assetService.LoadSceneAsync(bootConfig.MainMenuSceneKey);
