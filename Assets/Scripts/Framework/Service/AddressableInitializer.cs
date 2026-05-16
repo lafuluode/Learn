@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
-namespace Game.Framework.Core
+namespace Game.Framework.Resource
 {
     /// <summary>
     /// Addressable 初始化器

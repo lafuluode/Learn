@@ -4,7 +4,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using UnityEngine;
 
-namespace Game.Framework.Core
+namespace Game.Framework.HotUpdate
 {
     /// <summary>
     /// 脚本热更新服务接口

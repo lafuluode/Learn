@@ -10,7 +10,7 @@ using UnityEngine.ResourceManagement.AsyncOperations;
 using UnityEngine.ResourceManagement.ResourceProviders;
 using UnityEngine.SceneManagement;
 
-namespace Game.Framework.Core
+namespace Game.Framework.Resource
 {
 
     public class AddressableAssetService : IAssetService

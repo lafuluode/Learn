@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.ResourceManagement.ResourceProviders;
 using UnityEngine.SceneManagement;
 
-namespace Game.Framework.Core
+namespace Game.Framework.Resource
 {
     /// <summary>
     /// 资源管理接口，提供加载、实例化、释放和场景加载

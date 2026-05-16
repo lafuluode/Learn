@@ -7,7 +7,7 @@ using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
 
-namespace Game.Framework.Core
+namespace Game.Framework.Resource
 {
     /// <summary>
     /// 基于 Addressables 实现的资源更新服务

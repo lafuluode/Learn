@@ -1,6 +1,6 @@
 ﻿using UnityEngine.UIElements;
 
-namespace Game.Framework.Core
+namespace Game.Framework.Resource
 {
     /// <summary>
     /// 资源下载进度信息

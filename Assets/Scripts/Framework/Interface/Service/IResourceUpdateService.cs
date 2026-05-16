@@ -5,7 +5,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using UnityEngine;
 
-namespace Game.Framework.Core
+namespace Game.Framework.Resource
 {
     /// <summary>
     ///资源更新服务接口
