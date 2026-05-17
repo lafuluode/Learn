@@ -1,4 +1,5 @@
 using Game.Framework.Core;
+using Game.Framework.HotUpdate;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -40,6 +41,7 @@ namespace Game.Framework.Core
         private bool isShuttingDown;
         List<IGameSystem> gameSystems = new();
         List<IUpdateSystem> updateSystems = new();
+        [SerializeField] private ScriptHotUpdateConfig scriptHotUpdateConfig;
         void RegisterSystem(IGameSystem system)
         {
             if (system == null)
@@ -54,6 +56,7 @@ namespace Game.Framework.Core
         void RegisterSystems()
         {
             RegisterSystem(new ResourceSystem());
+            RegisterSystem(new ScriptHotUpdateSystem(scriptHotUpdateConfig));
         }
         private void Awake()
         {

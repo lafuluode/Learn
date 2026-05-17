@@ -32,7 +32,7 @@ namespace Game.Framework.Core
             Debug.Log("[ScriptHotUpdateSystem] 初始化开始");
             scriptHotUpdateService = CreateScriptHotUpdateService();
             ServiceLocator.Register<IScriptHotUpdateService>(scriptHotUpdateService);
-
+            isInitialized = true;
         }
         /// <summary>
         /// 根据配置创建具体脚本热更新服务

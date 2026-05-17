@@ -7,7 +7,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using UnityEngine;
 using Game.Framework.Resource;
-
+using Game.Framework.HotUpdate;
 namespace Game.Boot
 {
     /// <summary>
@@ -92,20 +92,18 @@ namespace Game.Boot
             loadingView?.HideError();
 
             SetProgress("准备启动...", 0f);
-            //获取资源服务实例
+            //获取服务实例
             var assetService = ResolveAssetService();
             var updateService = ResolveResourceUpdateService();
+            var scriptHotUpdateService = ResolveScriptHotUpdateService();
             //1. 初始化资源更新服务，确保它准备就绪，可以执行后续的资源检查和下载操作
             SetProgress("初始化资源系统...", 0.05f);
             await updateService.InitializeAsync(cancellationToken);
-
             cancellationToken.ThrowIfCancellationRequested();
 
             //2. 检查 Catalog 更新
             SetProgress("检查资源目录更新...", 0.1f);
-
             List<string> catalogs = await updateService.CheckCatalogUpdatesAsync(cancellationToken);
-
             cancellationToken.ThrowIfCancellationRequested();
 
             //3. 如果有更新，就更新Catalog
@@ -119,9 +117,7 @@ namespace Game.Boot
             //4. 获取预加载资源的下载大小，展示给用户
             SetProgress("检查预加载资源...", 0.3f);
             long downloadSize = await updateService.GetDownloadSizeAsync(bootConfig.PreloadGroupKey, cancellationToken);
-
             cancellationToken.ThrowIfCancellationRequested();
-
             if(downloadSize<=0)
             {
                 SetProgress("预加载资源已是最新", 0.8f);
@@ -140,10 +136,15 @@ namespace Game.Boot
                         cancellationToken
                         );
             }
-
-           
             cancellationToken.ThrowIfCancellationRequested();
-            //5. 加载主菜单场景
+
+            //5. 初始化并启动脚本热更新
+            SetProgress("初始化脚本热更新...", 0.85f);
+            await scriptHotUpdateService.InitializeAsync(cancellationToken);
+            await scriptHotUpdateService.StartAsync(cancellationToken);
+
+            cancellationToken.ThrowIfCancellationRequested();
+            //6. 加载主菜单场景
             SetProgress("加载主菜单...", 0.9f);
 
             await assetService.LoadSceneAsync(bootConfig.MainMenuSceneKey);
@@ -255,6 +256,22 @@ namespace Game.Boot
             else
             {
                 throw new InvalidOperationException("IResourceUpdateService 没有被注册在 ServiceLocator 中.");
+            }
+        }
+        /// <summary>
+        /// 获取热更新服务实例
+        /// </summary>
+        /// <returns></returns>
+        /// <exception cref="InvalidOperationException"></exception>
+        private IScriptHotUpdateService ResolveScriptHotUpdateService()
+        {
+            if (ServiceLocator.TryGet<IScriptHotUpdateService>(out var scriptHotUpdateService))
+            {
+                return scriptHotUpdateService;
+            }
+            else
+            {
+                throw new InvalidOperationException("IScriptHotUpdateService 没有被注册在 ServiceLocator 中.");
             }
         }
         #endregion

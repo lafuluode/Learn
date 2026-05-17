@@ -54,7 +54,7 @@ namespace Game.Framework.HotUpdate
         {
             cancellationToken.ThrowIfCancellationRequested();
 
-            if(isInitialized)
+            if(!isInitialized)
             {
                 await InitializeAsync(cancellationToken);
             }
@@ -64,23 +64,27 @@ namespace Game.Framework.HotUpdate
                 return;
             }
             Debug.Log("[HybridClrScriptHotUpdateService] 开始加载热更程序集");
-            TextAsset dllAsset = await assetService.LoadAssetAsync<TextAsset>(config.hybridClrAssemblyKey);
+            #if UNITY_EDITOR
+                hotUpdateAssembly = GetEditorHotUpdateAssembly();
+            #else
+                TextAsset dllAsset = await assetService.LoadAssetAsync<TextAsset>(config.hybridClrAssemblyKey);
 
-            cancellationToken.ThrowIfCancellationRequested();
-            if(dllAsset == null)
-            {
-                throw new Exception(
-                     $"[HybridClrScriptHotUpdateService] 加载热更程序集失败，资源 Key: {config.hybridClrAssemblyKey}");
-            }
+                cancellationToken.ThrowIfCancellationRequested();
+                if(dllAsset == null)
+                {
+                    throw new Exception(
+                         $"[HybridClrScriptHotUpdateService] 加载热更程序集失败，资源 Key: {config.hybridClrAssemblyKey}");
+                }
 
-            byte[] dllBytes = dllAsset.bytes;
-            if (dllBytes == null || dllBytes.Length == 0)
-            {
-                throw new Exception(
-                    $"[HybridClrScriptHotUpdateService] 加载热更程序集失败，资源 Key: {config.hybridClrAssemblyKey}");
-            }
+                byte[] dllBytes = dllAsset.bytes;
+                if (dllBytes == null || dllBytes.Length == 0)
+                {
+                    throw new Exception(
+                        $"[HybridClrScriptHotUpdateService] 加载热更程序集失败，资源 Key: {config.hybridClrAssemblyKey}");
+                }
 
-            hotUpdateAssembly = Assembly.Load(dllBytes);
+                hotUpdateAssembly = Assembly.Load(dllBytes);
+            #endif
             Debug.Log($"[HybridClrScriptHotUpdateService] 热更程序集加载成功: {hotUpdateAssembly.FullName}");
             InvokeEntryMethod();
             isStarted = true;
@@ -103,7 +107,7 @@ namespace Game.Framework.HotUpdate
                 throw new Exception(
                     $"[HybridClrScriptHotUpdateService] 找不到热更入口类型: {config.hybridClrEntryTypeName}");
             }
-            MethodInfo entryMethod = entryType.GetMethod(config.hybridClrEntryTypeName,BindingFlags.Public|BindingFlags.Static);
+            MethodInfo entryMethod = entryType.GetMethod(config.hybridClrEntryMethodName,BindingFlags.Public|BindingFlags.Static);
 
             if( entryMethod == null )
             {
@@ -127,5 +131,20 @@ namespace Game.Framework.HotUpdate
 
             Debug.Log("[HybridClrScriptHotUpdateService] 热更服务已关闭，相关资源已释放");
         }
+
+    #if UNITY_EDITOR
+        private Assembly GetEditorHotUpdateAssembly()
+        {
+            foreach (Assembly assembly in AppDomain.CurrentDomain.GetAssemblies())
+            {
+                if (assembly.GetName().Name == "HotUpdate")
+                {
+                    return assembly;
+                }
+            }
+
+            throw new Exception("[HybridClrScriptHotUpdateService] Editor 下找不到 HotUpdate 程序集");
+        }
+    #endif
     }
 }
