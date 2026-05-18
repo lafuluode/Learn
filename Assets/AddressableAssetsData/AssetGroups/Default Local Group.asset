@@ -17,6 +17,12 @@ MonoBehaviour:
     m_SerializedData: []
   m_GUID: de51d4d6afd3c8148845eecbc032c9e4
   m_SerializeEntries:
+  - m_GUID: 0a7ef0ea56c93374fa73bb9b4f5060a1
+    m_Address: HotUpdate.dll.bytes
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 1d82c5d191d4db447bb8cb2fcb729324
     m_Address: Scene_MainMenu
     m_ReadOnly: 0
