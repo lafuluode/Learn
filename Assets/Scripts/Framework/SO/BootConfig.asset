@@ -14,3 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   preloadGroupKey: preload
   mainMenuSceneKey: Scene_MainMenu
+  enableCatalogUpdate: 1
+  enablePreload: 1
+  enableScriptHotUpdate: 1

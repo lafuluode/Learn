@@ -1,4 +1,3 @@
-using dnlib.DotNet;
 using Game.Framework.Core;
 using System;
 using System.Collections;
@@ -102,48 +101,55 @@ namespace Game.Boot
             cancellationToken.ThrowIfCancellationRequested();
 
             //2. 检查 Catalog 更新
-            SetProgress("检查资源目录更新...", 0.1f);
-            List<string> catalogs = await updateService.CheckCatalogUpdatesAsync(cancellationToken);
-            cancellationToken.ThrowIfCancellationRequested();
-
-            //3. 如果有更新，就更新Catalog
-            if(catalogs!=null&&catalogs.Count > 0)
+            if (bootConfig.EnableCatalogUpdate)
             {
+                SetProgress("检查资源目录更新...", 0.1f);
+                List<string> catalogs = await updateService.CheckCatalogUpdatesAsync(cancellationToken);
+                cancellationToken.ThrowIfCancellationRequested();
+
+                //3. 如果有更新，就更新Catalog
+                if (catalogs != null && catalogs.Count > 0)
+                {
                     SetProgress("更新资源目录...", 0.2f);
                     await updateService.UpdateCatalogsAsync(catalogs, cancellationToken);
+                }
+                cancellationToken.ThrowIfCancellationRequested();
             }
-            cancellationToken.ThrowIfCancellationRequested();
-
             //4. 获取预加载资源的下载大小，展示给用户
-            SetProgress("检查预加载资源...", 0.3f);
-            long downloadSize = await updateService.GetDownloadSizeAsync(bootConfig.PreloadGroupKey, cancellationToken);
-            cancellationToken.ThrowIfCancellationRequested();
-            if(downloadSize<=0)
+            if (bootConfig.EnablePreload)
             {
-                SetProgress("预加载资源已是最新", 0.8f);
-            }
-            else
-            {
-                var downloadProgress = new Progress<ResourceDownloadProgress>(value =>
+                SetProgress("检查预加载资源...", 0.3f);
+                long downloadSize = await updateService.GetDownloadSizeAsync(bootConfig.PreloadGroupKey, cancellationToken);
+                cancellationToken.ThrowIfCancellationRequested();
+                if (downloadSize <= 0)
                 {
-                    float mappedProgreess = Mathf.Lerp(0.3f, 0.8f, value.Percent);
-                    SetProgress(value.Message, mappedProgreess);
-                });
+                    SetProgress("预加载资源已是最新", 0.8f);
+                }
+                else
+                {
+                    var downloadProgress = new Progress<ResourceDownloadProgress>(value =>
+                    {
+                        float mappedProgreess = Mathf.Lerp(0.3f, 0.8f, value.Percent);
+                        SetProgress(value.Message, mappedProgreess);
+                    });
 
-                await updateService.DownloadDependenciesAsync(
-                        bootConfig.PreloadGroupKey,
-                        downloadProgress,
-                        cancellationToken
-                        );
+                    await updateService.DownloadDependenciesAsync(
+                            bootConfig.PreloadGroupKey,
+                            downloadProgress,
+                            cancellationToken
+                            );
+                }
+                cancellationToken.ThrowIfCancellationRequested();
             }
-            cancellationToken.ThrowIfCancellationRequested();
-
             //5. 初始化并启动脚本热更新
-            SetProgress("初始化脚本热更新...", 0.85f);
-            await scriptHotUpdateService.InitializeAsync(cancellationToken);
-            await scriptHotUpdateService.StartAsync(cancellationToken);
+            if (bootConfig.EnableScriptHotUpdate)
+            {
+                SetProgress("初始化脚本热更新...", 0.85f);
+                await scriptHotUpdateService.InitializeAsync(cancellationToken);
+                await scriptHotUpdateService.StartAsync(cancellationToken);
 
-            cancellationToken.ThrowIfCancellationRequested();
+                cancellationToken.ThrowIfCancellationRequested();
+            }
             //6. 加载主菜单场景
             SetProgress("加载主菜单...", 0.9f);
 
@@ -198,9 +204,9 @@ namespace Game.Boot
         /// 
         /// 职责：
         /// 1. 把错误信息交给BootLoadingView显示
-        /// 2. 绑定充实按钮回调
+        /// 2. 重试按钮回调
         /// 
-        /// 当用户点击重试按钮时，会重新调用startBoot
+        /// 当用户点击重试按钮时，会重新调用StartBoot
         /// </summary>
         /// <param name="errorMessage"></param>
         private void ShowBootError(string errorMessage)
