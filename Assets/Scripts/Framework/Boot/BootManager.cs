@@ -94,7 +94,7 @@ namespace Game.Boot
             //获取服务实例
             var assetService = ResolveAssetService();
             var updateService = ResolveResourceUpdateService();
-            var scriptHotUpdateService = ResolveScriptHotUpdateService();
+            
             //1. 初始化资源更新服务，确保它准备就绪，可以执行后续的资源检查和下载操作
             SetProgress("初始化资源系统...", 0.05f);
             await updateService.InitializeAsync(cancellationToken);
@@ -144,6 +144,8 @@ namespace Game.Boot
             //5. 初始化并启动脚本热更新
             if (bootConfig.EnableScriptHotUpdate)
             {
+                //获取热更新服务实例
+                var scriptHotUpdateService = ResolveScriptHotUpdateService();
                 SetProgress("初始化脚本热更新...", 0.85f);
                 await scriptHotUpdateService.InitializeAsync(cancellationToken);
                 await scriptHotUpdateService.StartAsync(cancellationToken);
@@ -177,7 +179,7 @@ namespace Game.Boot
             {
                 throw new InvalidOperationException("BootConfig is not assigned in BootManager.");
             }
-            if (string.IsNullOrWhiteSpace(bootConfig.PreloadGroupKey))
+            if (bootConfig.EnablePreload && string.IsNullOrWhiteSpace(bootConfig.PreloadGroupKey))
             {
                 throw new InvalidOperationException("BootConfig.PreloadGroupKey is empty.");
             }
