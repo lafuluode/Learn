@@ -1,9 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 using System;
 using System.IO;
-using JetBrains.Annotations;
 
 namespace Game.Framework.Storage
 {
@@ -63,7 +59,7 @@ namespace Game.Framework.Storage
             string fullPath = GetFullPath(relativePath);
             string directory = Path.GetDirectoryName(fullPath);
 
-            if (!string.IsNullOrEmpty(directory) && !Directory.Exists(directory))
+            if (!string.IsNullOrWhiteSpace(directory) && !Directory.Exists(directory))
             {
                 Directory.CreateDirectory(directory);
             }

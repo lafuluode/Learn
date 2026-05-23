@@ -1,7 +1,4 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Security.Cryptography;
 using System.Text;
 using UnityEngine;
 
@@ -21,7 +18,7 @@ namespace Game.Framework.Serialization
         {
             if(data == null)
             {
-                throw new ArgumentNullException(nameof(data));
+                throw new ArgumentNullException(nameof(data)); 
             }   
             string json = JsonUtility.ToJson(data);
             return Encoding.UTF8.GetBytes(json);
