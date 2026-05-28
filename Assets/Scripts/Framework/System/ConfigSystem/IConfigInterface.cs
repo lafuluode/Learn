@@ -70,13 +70,13 @@ namespace Game.Framework.Config
         /// <param name="id">配置 ID</param>
         /// <returns>查询到的配置行</returns>
         TConfig Get<TConfig,TKey>(TKey id) where TConfig : class, IConfigRow<TKey>;
-        
+
         /// <summary>
         /// 获取指定类型的所有配置行
         /// </summary>
         /// <typeparam name="T">配置行类型</typeparam>
         /// <returns>包含所有配置行的只读字典，键为配置行的ID</returns>
-        IReadOnlyDictionary<int, T> GetAll<T>() where T : class;
+        IReadOnlyCollection<TConfig> GetAll<TConfig,TKey>() where TConfig : class,IConfigRow<TKey>;
         /// <summary>
         /// 重新加载指定类型的配置表，
         /// 常用于开发调试、GM 工具或热更新后的配置刷新
@@ -117,6 +117,14 @@ namespace Game.Framework.Config
         /// </summary>
         TKey Id { get; }
     }
+
+    public interface IConfigTableSource<TConfig,TKey>
+        where TConfig :class,IConfigRow<TKey>
+    {
+        IEnumerable<TConfig> GetRow();
+    }
+
+
     /// <summary>
     /// 单张配置表接口
     /// 用于管理某一配置类型的所有配置行

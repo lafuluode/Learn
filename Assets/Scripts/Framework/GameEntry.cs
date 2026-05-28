@@ -57,6 +57,7 @@ namespace Game.Framework.Core
         {
             RegisterSystem(new ResourceSystem());
             RegisterSystem(new ScriptHotUpdateSystem(scriptHotUpdateConfig));
+            RegisterSystem(new SaveSystem());
         }
         private void Awake()
         {
