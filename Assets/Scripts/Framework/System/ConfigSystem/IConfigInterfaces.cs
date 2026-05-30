@@ -1,9 +1,7 @@
-using MCPForUnity.Editor.Clients.Configurators;
-using System.Collections;
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
-using UnityEngine;
+
 
 namespace Game.Framework.Config
 {
@@ -121,9 +119,8 @@ namespace Game.Framework.Config
     public interface IConfigTableSource<TConfig,TKey>
         where TConfig :class,IConfigRow<TKey>
     {
-        IEnumerable<TConfig> GetRow();
+        IEnumerable<TConfig> GetRows();
     }
-
 
     /// <summary>
     /// 单张配置表接口

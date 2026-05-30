@@ -5,7 +5,16 @@ using UnityEngine;
 
 namespace Game.Framework.Config
 {
-    public class ConfigTable<TConfig, TKey> : IConfigTable<TConfig, TKey>
+    /// <summary>
+    /// 单张配置表的默认实现
+    /// </summary>
+    /// <typeparam name="TConfig"></typeparam>
+    /// <typeparam name="TKey"></typeparam>
+    /// <remarks>
+    /// ConfigTable 负责将配置行集合按照 Id 建立索引，
+    /// 从而在运行时可以通过 Id 快速查询配置。
+    /// </remarks>
+    public sealed class ConfigTable<TConfig, TKey> : IConfigTable<TConfig, TKey>
         where TConfig : class, IConfigRow<TKey>
     {
         /// <summary>

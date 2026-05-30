@@ -5,7 +5,17 @@ using System.Threading.Tasks;
 using UnityEngine;
 namespace Game.Framework.Config
 {
-
+    /// <summary>
+    /// 配置表服务的默认实现
+    /// </summary>
+    /// <remarks>
+    /// 负责加载、缓存、查询和释放配置表
+    /// ConfigService 不直接关心配置表底层来自 Addressables、AssetBundle 还是其他资源系统，
+    /// 它只通过 IAssetService 加载 TextAsset。
+    /// 
+    /// ConfigService 也不直接关心具体序列化格式，
+    /// 它只通过 IDataSerializer 将字节数据反序列化为配置表数据对象。
+    /// </remarks>
     public class ConfigService : IConfigService
     {
         public bool IsInitialized { get; private set; }
