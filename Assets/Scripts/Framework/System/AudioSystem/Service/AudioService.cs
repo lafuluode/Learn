@@ -1,6 +1,7 @@
 using Game.Framework.Audio;
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using UnityEngine;
 namespace Game.Framework.Audio
 {
@@ -22,6 +23,10 @@ namespace Game.Framework.Audio
         public bool IsMuted => isMuted;
         public float BGMVolume => bgmVolume;
         public float SFXVolume => sfxVolume;
+
+        public float MasterVolume => throw new System.NotImplementedException();
+
+        public string CurrentBGM => throw new System.NotImplementedException();
 
         public AudioService(AudioSource bgmSource,AudioSource sfxSource)
         {
@@ -115,7 +120,36 @@ namespace Game.Framework.Audio
             {
                 sfxSource.volume = isMuted ? 0 : sfxVolume;
             }
-        }   
+        }
 
+        public Task PlayBGMAsync(string audioId, bool restartIfSame = false, bool loop = true)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public Task PlaySFXAsync(string audioId, float volumeScale = 1)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public void PlayBGM(AudioClip clip, bool loop = true, bool restartIfSame = false)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public void StopAllSFX()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public void SetMastersVolume(float volume)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public void StopAll()
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }
