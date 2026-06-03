@@ -38,9 +38,10 @@ namespace Game.Framework.Config
         /// </param>
         /// <param name="cancellationToken"></param>
         /// <returns></returns>
-        Task LoadTableAsync<TConfig, TKey>(
+        Task LoadTableAsync<TTableData,TConfig, TKey>(
             string tableKey,
-            CancellationToken cancellationToken = default) 
+            CancellationToken cancellationToken = default)
+            where TTableData : IConfigTableSource<TConfig, TKey>
             where TConfig:class,IConfigRow<TKey> ;
 
         /// <summary>
@@ -84,9 +85,10 @@ namespace Game.Framework.Config
         /// <param name="tableKey">配置表资源标识</param>
         /// <param name="cancellationToken">用于取消操作的令牌</param>
         /// <returns></returns>
-        Task ReloadTableAsync<TConfig,TKey>(
+        Task ReloadTableAsync<TTableData, TConfig,TKey>(
             string tableKey,
             CancellationToken cancellationToken = default)
+            where TTableData : IConfigTableSource<TConfig, TKey>
             where TConfig: class,IConfigRow<TKey>;
         /// <summary>
         /// 卸载指定类型的配置表，
