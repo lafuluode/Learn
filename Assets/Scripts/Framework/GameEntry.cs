@@ -58,6 +58,8 @@ namespace Game.Framework.Core
             RegisterSystem(new ResourceSystem());
             RegisterSystem(new ScriptHotUpdateSystem(scriptHotUpdateConfig));
             RegisterSystem(new SaveSystem());
+            RegisterSystem(new ConfigSystem());
+            RegisterSystem(new AudioSystem());
         }
         private void Awake()
         {
