@@ -16,9 +16,16 @@ namespace Game.GamePlay.Card
     [Serializable]
     public class CardConfigTableData: IConfigTableSource<CardConfig,int>
     {
+        /// <summary>
+        /// 所有卡牌配置行
+        /// 
+        /// 注意：
+        /// 字段名 Cards 需要和 Json 文件里的字段名保持一致。 
+        /// </summary>
+        public List<CardConfig> Cards = new();
         public IEnumerable<CardConfig> GetRows()
         {
-            throw new System.NotImplementedException();
+            return Cards;
         }
     }
 }
