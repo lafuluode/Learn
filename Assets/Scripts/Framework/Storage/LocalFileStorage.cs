@@ -6,7 +6,7 @@ namespace Game.Framework.Storage
     /// <summary>
     /// 本地文件存储实现
     /// </summary>
-    public sealed class LocalFileStorage : IFileStorage
+    public sealed class LocalFileStorage : IDataStorage
     {
         private readonly string rootPath;
 

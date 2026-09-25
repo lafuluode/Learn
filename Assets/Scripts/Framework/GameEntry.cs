@@ -56,6 +56,7 @@ namespace Game.Framework.Core
         void RegisterSystems()
         {
             RegisterSystem(new ResourceSystem());
+            RegisterSystem(new DatabaseSystem());
             RegisterSystem(new SaveSystem());
             RegisterSystem(new ConfigSystem());
             RegisterSystem(new InventorySystem());

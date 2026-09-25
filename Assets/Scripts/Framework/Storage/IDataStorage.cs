@@ -6,7 +6,7 @@ namespace Game.Framework.Storage
     /// <remarks>
     /// 它不关心文件内容是什么格式，也不关心这些数据属于哪个系统
     /// </remarks>
-    public interface IFileStorage 
+    public interface IDataStorage
     {
         /// <summary>
         /// 判断指定相对路径的文件是否存在

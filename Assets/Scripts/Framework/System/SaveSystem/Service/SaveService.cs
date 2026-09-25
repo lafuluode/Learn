@@ -10,14 +10,14 @@ namespace Game.Framework.Save
     public class SaveService : ISaveService
     {
         private readonly IDataSerializer serializer;
-        private readonly IFileStorage fileStorage;
+        private readonly IDataStorage fileStorage;
 
         private readonly string saveDirectory;
         private readonly string fileExtension;
 
         public SaveService(
-            IDataSerializer serializer, 
-            IFileStorage storage,
+            IDataSerializer serializer,
+            IDataStorage storage,
             string saveDirectory = "save",
             string fileExtension = ".json"
             )

@@ -22,7 +22,7 @@ namespace Game.Framework.Core
         {
             IDataSerializer serializer = new UnityJsonDataSerializer();
 
-            IFileStorage fileStorage = new LocalFileStorage(Application.persistentDataPath);
+            IDataStorage fileStorage = new LocalFileStorage(Application.persistentDataPath);
 
             saveService = new SaveService(serializer, fileStorage);
 
