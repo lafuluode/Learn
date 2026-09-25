@@ -1,0 +1,195 @@
+<mxfile host="app.diagrams.net" modified="2026-08-02T00:00:00.000Z" agent="Codex drawio-skill" version="26.0.0" type="device" compressed="false">
+  <diagram id="inventory-architecture" name="背包业务架构">
+    <mxGraphModel dx="1480" dy="1120" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="1200" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <mxCell id="2" value="背包系统：业务层优先的分层架构（首版 10 个主要类型）" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=22;fontStyle=1;fontColor=#1f2937;" vertex="1" parent="1">
+          <mxGeometry x="40" y="20" width="1400" height="40" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="10" value="Presentation · Unity 展示层（3 个）" style="swimlane;html=1;horizontal=1;startSize=34;rounded=1;arcSize=8;strokeWidth=2;strokeColor=#d79b00;fillColor=#ffe6cc;swimlaneFillColor=#fff8ee;fontStyle=1;fontSize=15;fontColor=#7c4a03;collapsible=0;" vertex="1" parent="1">
+          <mxGeometry x="40" y="80" width="1400" height="200" as="geometry"/>
+        </mxCell>
+        <mxCell id="11" value="&lt;b&gt;InventoryView&lt;/b&gt;&lt;br&gt;持有 Unity UI 引用&lt;br&gt;只负责显示 / 隐藏 / 渲染" style="rounded=1;whiteSpace=wrap;html=1;strokeWidth=2;strokeColor=#d79b00;fillColor=#fff2cc;fontSize=14;fontColor=#4b3200;arcSize=10;" vertex="1" parent="10">
+          <mxGeometry x="30" y="55" width="300" height="105" as="geometry"/>
+        </mxCell>
+        <mxCell id="12" value="&lt;b&gt;ItemCellView&lt;/b&gt;&lt;br&gt;绑定一个格子的数据&lt;br&gt;上报点击，不判断业务规则" style="rounded=1;whiteSpace=wrap;html=1;strokeWidth=2;strokeColor=#d79b00;fillColor=#fff2cc;fontSize=14;fontColor=#4b3200;arcSize=10;" vertex="1" parent="10">
+          <mxGeometry x="380" y="55" width="300" height="105" as="geometry"/>
+        </mxCell>
+        <mxCell id="13" value="&lt;b&gt;InventoryPresenter&lt;/b&gt;&lt;br&gt;响应 UI 事件、查询 Service&lt;br&gt;分类 / 排序 / 选择状态 / 刷新 View" style="rounded=1;whiteSpace=wrap;html=1;strokeWidth=2;strokeColor=#d79b00;fillColor=#fff2cc;fontSize=14;fontColor=#4b3200;arcSize=10;" vertex="1" parent="10">
+          <mxGeometry x="840" y="55" width="500" height="105" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="20" value="Application · 用例协调层（3 个）" style="swimlane;html=1;horizontal=1;startSize=34;rounded=1;arcSize=8;strokeWidth=2;strokeColor=#6c8ebf;fillColor=#dae8fc;swimlaneFillColor=#f5f9ff;fontStyle=1;fontSize=15;fontColor=#1f4e79;collapsible=0;" vertex="1" parent="1">
+          <mxGeometry x="40" y="320" width="1400" height="200" as="geometry"/>
+        </mxCell>
+        <mxCell id="21" value="&lt;b&gt;InventorySystem&lt;/b&gt;&lt;br&gt;实现 IGameSystem&lt;br&gt;负责初始化、注册、释放" style="rounded=1;whiteSpace=wrap;html=1;strokeWidth=2;strokeColor=#6c8ebf;fillColor=#eaf2ff;fontSize=14;fontColor=#17365d;arcSize=10;" vertex="1" parent="20">
+          <mxGeometry x="30" y="55" width="300" height="105" as="geometry"/>
+        </mxCell>
+        <mxCell id="22" value="&lt;b&gt;IInventoryService&lt;/b&gt;&lt;br&gt;界面对外唯一业务入口&lt;br&gt;Query / Add / Remove / Move / Changed" style="rounded=1;whiteSpace=wrap;html=1;strokeWidth=2;strokeColor=#6c8ebf;fillColor=#eaf2ff;fontSize=14;fontColor=#17365d;arcSize=10;dashed=1;" vertex="1" parent="20">
+          <mxGeometry x="420" y="55" width="320" height="105" as="geometry"/>
+        </mxCell>
+        <mxCell id="23" value="&lt;b&gt;InventoryService&lt;/b&gt;&lt;br&gt;执行背包用例并协调依赖&lt;br&gt;领域规则、配置、存档 / 联网都从这里汇合" style="rounded=1;whiteSpace=wrap;html=1;strokeWidth=2;strokeColor=#6c8ebf;fillColor=#eaf2ff;fontSize=14;fontColor=#17365d;arcSize=10;" vertex="1" parent="20">
+          <mxGeometry x="840" y="55" width="500" height="105" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="30" value="Domain · 纯 C# 业务模型（4 个，不继承 MonoBehaviour）" style="swimlane;html=1;horizontal=1;startSize=34;rounded=1;arcSize=8;strokeWidth=2;strokeColor=#82b366;fillColor=#d5e8d4;swimlaneFillColor=#f5fbf4;fontStyle=1;fontSize=15;fontColor=#2f5b20;collapsible=0;" vertex="1" parent="1">
+          <mxGeometry x="40" y="560" width="1400" height="230" as="geometry"/>
+        </mxCell>
+        <mxCell id="31" value="&lt;b&gt;ItemDefinition&lt;/b&gt;&lt;br&gt;静态配置&lt;br&gt;Id / Name / Category&lt;br&gt;MaxStack / IconKey / Description" style="rounded=1;whiteSpace=wrap;html=1;strokeWidth=2;strokeColor=#82b366;fillColor=#eaf6e9;fontSize=14;fontColor=#234d1a;arcSize=10;" vertex="1" parent="30">
+          <mxGeometry x="30" y="60" width="280" height="125" as="geometry"/>
+        </mxCell>
+        <mxCell id="32" value="&lt;b&gt;InventoryItem&lt;/b&gt;&lt;br&gt;运行时物品栈&lt;br&gt;InstanceId / ConfigId / Count&lt;br&gt;可选：耐久、绑定状态等实例数据" style="rounded=1;whiteSpace=wrap;html=1;strokeWidth=2;strokeColor=#82b366;fillColor=#eaf6e9;fontSize=14;fontColor=#234d1a;arcSize=10;" vertex="1" parent="30">
+          <mxGeometry x="350" y="60" width="280" height="125" as="geometry"/>
+        </mxCell>
+        <mxCell id="33" value="&lt;b&gt;InventorySlot&lt;/b&gt;&lt;br&gt;格子模型&lt;br&gt;SlotIndex + Item?&lt;br&gt;格子为空也是合法状态" style="rounded=1;whiteSpace=wrap;html=1;strokeWidth=2;strokeColor=#82b366;fillColor=#eaf6e9;fontSize=14;fontColor=#234d1a;arcSize=10;" vertex="1" parent="30">
+          <mxGeometry x="670" y="60" width="280" height="125" as="geometry"/>
+        </mxCell>
+        <mxCell id="34" value="&lt;b&gt;Inventory&lt;/b&gt;&lt;br&gt;聚合根：维护容量和所有 Slot&lt;br&gt;TryAdd / Remove / Move / Split / Merge&lt;br&gt;保证堆叠上限、数量和格子不变量" style="rounded=1;whiteSpace=wrap;html=1;strokeWidth=2;strokeColor=#82b366;fillColor=#eaf6e9;fontSize=14;fontColor=#234d1a;arcSize=10;" vertex="1" parent="30">
+          <mxGeometry x="990" y="60" width="350" height="125" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="40" value="Existing Infrastructure · 复用现有框架（不计入背包主要类型）" style="swimlane;html=1;horizontal=1;startSize=34;rounded=1;arcSize=8;strokeWidth=2;strokeColor=#9673a6;fillColor=#e1d5e7;swimlaneFillColor=#faf7fb;fontStyle=1;fontSize=15;fontColor=#563466;collapsible=0;" vertex="1" parent="1">
+          <mxGeometry x="40" y="830" width="1400" height="200" as="geometry"/>
+        </mxCell>
+        <mxCell id="41" value="&lt;b&gt;ConfigSystem / IConfigService&lt;/b&gt;&lt;br&gt;读取 ItemDefinition&lt;br&gt;避免把配置硬编码到业务层" style="rounded=1;whiteSpace=wrap;html=1;strokeWidth=2;strokeColor=#9673a6;fillColor=#f2eafa;fontSize=14;fontColor=#493057;arcSize=10;" vertex="1" parent="40">
+          <mxGeometry x="30" y="55" width="280" height="105" as="geometry"/>
+        </mxCell>
+        <mxCell id="42" value="&lt;b&gt;ResourceSystem / IAssetService&lt;/b&gt;&lt;br&gt;按 IconKey 加载图标&lt;br&gt;业务数据不直接保存 Sprite" style="rounded=1;whiteSpace=wrap;html=1;strokeWidth=2;strokeColor=#9673a6;fillColor=#f2eafa;fontSize=14;fontColor=#493057;arcSize=10;" vertex="1" parent="40">
+          <mxGeometry x="350" y="55" width="280" height="105" as="geometry"/>
+        </mxCell>
+        <mxCell id="43" value="&lt;b&gt;SaveSystem / ISaveService&lt;/b&gt;&lt;br&gt;离线保存 InventorySnapshot&lt;br&gt;只保存运行时数据和配置 Id" style="rounded=1;whiteSpace=wrap;html=1;strokeWidth=2;strokeColor=#9673a6;fillColor=#f2eafa;fontSize=14;fontColor=#493057;arcSize=10;" vertex="1" parent="40">
+          <mxGeometry x="670" y="55" width="280" height="105" as="geometry"/>
+        </mxCell>
+        <mxCell id="44" value="&lt;b&gt;NetworkGateway（联网时再加）&lt;/b&gt;&lt;br&gt;发命令、接收 Snapshot / Delta&lt;br&gt;服务器权威时本地 Inventory 作为投影" style="rounded=1;whiteSpace=wrap;html=1;strokeWidth=2;strokeColor=#9673a6;fillColor=#f2eafa;fontSize=14;fontColor=#493057;arcSize=10;dashed=1;" vertex="1" parent="40">
+          <mxGeometry x="990" y="55" width="350" height="105" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="100" value="管理格子 / 点击回传" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#b77900;fontSize=12;endArrow=block;endFill=1;" edge="1" parent="1" source="11" target="12">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="101" value="UI 事件 / ViewModel 刷新" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#b77900;fontSize=12;endArrow=block;endFill=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="11" target="13">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="190" y="105"/>
+              <mxPoint x="1130" y="105"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="102" value="只依赖接口：查询 / 命令 / Changed" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#4f76a8;fontSize=12;endArrow=block;endFill=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.9;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="13" target="22">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1130" y="300"/>
+              <mxPoint x="740" y="300"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="103" value="创建并注册" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#4f76a8;fontSize=12;endArrow=block;endFill=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.2;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="21" target="23">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="220" y="500"/>
+              <mxPoint x="980" y="500"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="104" value="实现" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#4f76a8;fontSize=12;dashed=1;endArrow=block;endFill=0;" edge="1" parent="1" source="23" target="22">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="105" value="调用领域行为" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#4f76a8;fontSize=12;endArrow=block;endFill=1;exitX=0.65;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="23" target="34">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="106" value="拥有 0..Capacity" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#5c9a42;fontSize=12;startArrow=diamond;startFill=1;endArrow=block;endFill=1;" edge="1" parent="1" source="34" target="33">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="107" value="包含 0..1" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#5c9a42;fontSize=12;endArrow=block;endFill=1;" edge="1" parent="1" source="33" target="32">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="108" value="通过 ConfigId 引用" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#5c9a42;fontSize=12;endArrow=block;endFill=1;" edge="1" parent="1" source="32" target="31">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="109" value="加载静态配置" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#805a91;fontSize=12;dashed=1;endArrow=block;endFill=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="41" target="31">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="110" value="IconKey → Sprite" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#805a91;fontSize=12;dashed=1;endArrow=block;endFill=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="42" target="12">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="530" y="1040"/>
+              <mxPoint x="20" y="1040"/>
+              <mxPoint x="20" y="300"/>
+              <mxPoint x="530" y="300"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="111" value="保存 / 恢复 Snapshot" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#805a91;fontSize=12;dashed=1;endArrow=block;endFill=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.2;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="43" target="34">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="850" y="810"/>
+              <mxPoint x="1100" y="810"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="112" value="Snapshot / Delta（未来）" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#805a91;fontSize=12;dashed=1;endArrow=block;endFill=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.7;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="44" target="34">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="200" value="&lt;b&gt;边界原则：&lt;/b&gt; View 不改背包数据；Presenter 不保存规则；Service 不持有 Unity 组件；Domain 不认识 MonoBehaviour、Sprite、网络或存档格式。" style="rounded=1;whiteSpace=wrap;html=1;strokeWidth=1;strokeColor=#999999;fillColor=#f5f5f5;fontSize=13;fontColor=#333333;align=left;spacingLeft=12;arcSize=8;" vertex="1" parent="1">
+          <mxGeometry x="40" y="1060" width="1400" height="55" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="inventory-add-flow" name="添加物品主流程">
+    <mxGraphModel dx="1560" dy="720" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1700" pageHeight="800" math="0" shadow="0">
+      <root>
+        <mxCell id="f0"/>
+        <mxCell id="f1" parent="f0"/>
+        <mxCell id="f2" value="一次 AddItem 从业务命令到 UI 刷新的完整流向" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=22;fontStyle=1;fontColor=#1f2937;" vertex="1" parent="f1">
+          <mxGeometry x="50" y="30" width="1500" height="40" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="f10" value="&lt;b&gt;玩法 / 奖励系统&lt;/b&gt;&lt;br&gt;发出 AddItem(configId, count)&lt;br&gt;不直接修改背包数组" style="rounded=1;whiteSpace=wrap;html=1;strokeWidth=2;strokeColor=#666666;fillColor=#f5f5f5;fontSize=14;fontColor=#333333;arcSize=10;" vertex="1" parent="f1">
+          <mxGeometry x="50" y="130" width="220" height="110" as="geometry"/>
+        </mxCell>
+        <mxCell id="f11" value="&lt;b&gt;InventoryService&lt;/b&gt;&lt;br&gt;查 ItemDefinition&lt;br&gt;组织一次业务用例" style="rounded=1;whiteSpace=wrap;html=1;strokeWidth=2;strokeColor=#6c8ebf;fillColor=#eaf2ff;fontSize=14;fontColor=#17365d;arcSize=10;" vertex="1" parent="f1">
+          <mxGeometry x="310" y="130" width="220" height="110" as="geometry"/>
+        </mxCell>
+        <mxCell id="f12" value="&lt;b&gt;Inventory.TryAdd&lt;/b&gt;&lt;br&gt;先合并未满堆叠&lt;br&gt;再占用空 Slot，并维护不变量" style="rounded=1;whiteSpace=wrap;html=1;strokeWidth=2;strokeColor=#82b366;fillColor=#eaf6e9;fontSize=14;fontColor=#234d1a;arcSize=10;" vertex="1" parent="f1">
+          <mxGeometry x="570" y="130" width="240" height="110" as="geometry"/>
+        </mxCell>
+        <mxCell id="f13" value="&lt;b&gt;InventoryResult + ChangeSet&lt;/b&gt;&lt;br&gt;成功 / 失败原因&lt;br&gt;实际加入数量 + 变化的 Slot" style="rounded=1;whiteSpace=wrap;html=1;strokeWidth=2;strokeColor=#82b366;fillColor=#eaf6e9;fontSize=14;fontColor=#234d1a;arcSize=10;" vertex="1" parent="f1">
+          <mxGeometry x="850" y="130" width="240" height="110" as="geometry"/>
+        </mxCell>
+        <mxCell id="f14" value="&lt;b&gt;InventoryPresenter&lt;/b&gt;&lt;br&gt;订阅 Changed&lt;br&gt;生成只读展示数据" style="rounded=1;whiteSpace=wrap;html=1;strokeWidth=2;strokeColor=#d79b00;fillColor=#fff2cc;fontSize=14;fontColor=#4b3200;arcSize=10;" vertex="1" parent="f1">
+          <mxGeometry x="1130" y="130" width="220" height="110" as="geometry"/>
+        </mxCell>
+        <mxCell id="f15" value="&lt;b&gt;InventoryView / CellView&lt;/b&gt;&lt;br&gt;刷新变化的格子&lt;br&gt;按 IconKey 请求 Sprite" style="rounded=1;whiteSpace=wrap;html=1;strokeWidth=2;strokeColor=#d79b00;fillColor=#fff2cc;fontSize=14;fontColor=#4b3200;arcSize=10;" vertex="1" parent="f1">
+          <mxGeometry x="1390" y="130" width="220" height="110" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="f20" value="&lt;b&gt;离线模式&lt;/b&gt;&lt;br&gt;Service 将 InventorySnapshot&lt;br&gt;交给 ISaveService" style="rounded=1;whiteSpace=wrap;html=1;strokeWidth=2;strokeColor=#9673a6;fillColor=#f2eafa;fontSize=14;fontColor=#493057;arcSize=10;" vertex="1" parent="f1">
+          <mxGeometry x="310" y="350" width="270" height="105" as="geometry"/>
+        </mxCell>
+        <mxCell id="f21" value="&lt;b&gt;联网模式（未来替换同一入口）&lt;/b&gt;&lt;br&gt;Service 发命令给 Gateway&lt;br&gt;收到服务器 Snapshot / Delta 后再发布 Changed" style="rounded=1;whiteSpace=wrap;html=1;strokeWidth=2;strokeColor=#9673a6;fillColor=#f2eafa;fontSize=14;fontColor=#493057;arcSize=10;dashed=1;" vertex="1" parent="f1">
+          <mxGeometry x="650" y="350" width="360" height="105" as="geometry"/>
+        </mxCell>
+        <mxCell id="f22" value="关键点：UI、奖励系统、存档和网络都不能绕过 IInventoryService 直接写 Inventory；这样规则只有一个入口。" style="rounded=1;whiteSpace=wrap;html=1;strokeWidth=1;strokeColor=#999999;fillColor=#f5f5f5;fontSize=14;fontColor=#333333;align=left;spacingLeft=12;arcSize=8;" vertex="1" parent="f1">
+          <mxGeometry x="50" y="530" width="1560" height="65" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="f100" value="命令" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#555555;fontSize=12;endArrow=block;endFill=1;" edge="1" parent="f1" source="f10" target="f11"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="f101" value="调用领域行为" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#4f76a8;fontSize=12;endArrow=block;endFill=1;" edge="1" parent="f1" source="f11" target="f12"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="f102" value="返回结果" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#5c9a42;fontSize=12;endArrow=block;endFill=1;" edge="1" parent="f1" source="f12" target="f13"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="f103" value="Changed" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#b77900;fontSize=12;endArrow=block;endFill=1;" edge="1" parent="f1" source="f13" target="f14"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="f104" value="Render" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#b77900;fontSize=12;endArrow=block;endFill=1;" edge="1" parent="f1" source="f14" target="f15"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="f105" value="保存" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#805a91;fontSize=12;dashed=1;endArrow=block;endFill=1;exitX=0.35;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="f1" source="f11" target="f20"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="f106" value="联网时走 Gateway" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#805a91;fontSize=12;dashed=1;endArrow=block;endFill=1;exitX=0.8;exitY=1;exitDx=0;exitDy=0;entryX=0.15;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="f1" source="f11" target="f21">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points"><mxPoint x="490" y="300"/><mxPoint x="700" y="300"/></Array>
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

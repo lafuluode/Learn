@@ -1,0 +1,60 @@
+{
+  "Items": [
+    {
+      "ConfigId": 1001,
+      "Name": "新手长剑",
+      "Description": "适合新手使用的基础武器。",
+      "IconKey": "inventory/icon/starter_sword",
+      "Category": 1
+    },
+    {
+      "ConfigId": 1002,
+      "Name": "守卫头盔",
+      "Description": "提供基础防护的头盔。",
+      "IconKey": "inventory/icon/guard_helmet",
+      "Category": 1
+    },
+    {
+      "ConfigId": 2001,
+      "Name": "生命药水",
+      "Description": "使用后恢复少量生命值。",
+      "IconKey": "inventory/icon/health_potion",
+      "Category": 2
+    },
+    {
+      "ConfigId": 2002,
+      "Name": "能量药水",
+      "Description": "使用后恢复少量能量。",
+      "IconKey": "inventory/icon/energy_potion",
+      "Category": 2
+    },
+    {
+      "ConfigId": 3001,
+      "Name": "铁矿石",
+      "Description": "常见的锻造材料。",
+      "IconKey": "inventory/icon/iron_ore",
+      "Category": 3
+    },
+    {
+      "ConfigId": 3002,
+      "Name": "魔力结晶",
+      "Description": "蕴含魔力的稀有材料。",
+      "IconKey": "inventory/icon/magic_crystal",
+      "Category": 3
+    },
+    {
+      "ConfigId": 4001,
+      "Name": "古代地图碎片",
+      "Description": "集齐后可以拼成完整地图。",
+      "IconKey": "inventory/icon/map_fragment",
+      "Category": 4
+    },
+    {
+      "ConfigId": 5001,
+      "Name": "纪念徽章",
+      "Description": "一枚具有纪念意义的徽章。",
+      "IconKey": "inventory/icon/commemorative_badge",
+      "Category": 5
+    }
+  ]
+}

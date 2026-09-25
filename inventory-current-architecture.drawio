@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxfile host="drawio" version="26.0.0">
+  <diagram id="inventory-current" name="当前背包架构">
+    <mxGraphModel dx="1800" dy="1280" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1800" pageHeight="1280" math="0" shadow="0" background="#ffffff">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <mxCell id="2" value="当前背包系统架构（已实现版本）" style="text;html=1;align=left;verticalAlign=middle;fontSize=28;fontStyle=1;fontFamily=Microsoft YaHei;fontColor=#1f2937;" vertex="1" parent="1">
+          <mxGeometry x="40" y="20" width="900" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="3" value="80 槽容量　•　非堆叠　•　每页 28 格（7×4）　•　每帧绑定 7 格　•　对象池复用" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=16;fontStyle=1;fontFamily=Microsoft YaHei;fontColor=#5d4700;arcSize=12;" vertex="1" parent="1">
+          <mxGeometry x="980" y="20" width="780" height="50" as="geometry" />
+        </mxCell>
+
+        <mxCell id="10" value="框架与装配层" style="swimlane;startSize=34;horizontal=1;container=1;pointerEvents=0;rounded=1;html=1;fillColor=#f5f5f5;swimlaneFillColor=#ffffff;strokeColor=#666666;fontSize=17;fontStyle=1;fontFamily=Microsoft YaHei;fontColor=#333333;" vertex="1" parent="1">
+          <mxGeometry x="40" y="90" width="1720" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="11" value="&lt;b&gt;GameEntry&lt;/b&gt;&#xa;Composition Root&#xa;按 Priority 初始化 IGameSystem" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=15;fontFamily=Microsoft YaHei;fontColor=#333333;arcSize=12;" vertex="1" parent="10">
+          <mxGeometry x="80" y="55" width="330" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="12" value="&lt;b&gt;ServiceLocator&lt;/b&gt;&#xa;运行时服务注册表&#xa;UI 只获取 IInventoryService / IAssetService" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=15;fontFamily=Microsoft YaHei;fontColor=#3f2b49;arcSize=12;" vertex="1" parent="10">
+          <mxGeometry x="720" y="55" width="390" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="13" value="&lt;b&gt;生命周期顺序&lt;/b&gt;&#xa;ResourceSystem → ConfigSystem → InventorySystem&#xa;退出时反向 Shutdown 并清空服务" style="shape=note;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=14;fontFamily=Microsoft YaHei;fontColor=#5d4700;" vertex="1" parent="10">
+          <mxGeometry x="1250" y="48" width="400" height="92" as="geometry" />
+        </mxCell>
+
+        <mxCell id="20" value="表现层（Unity / MonoBehaviour）" style="swimlane;startSize=34;horizontal=1;container=1;pointerEvents=0;rounded=1;html=1;fillColor=#dae8fc;swimlaneFillColor=#ffffff;strokeColor=#6c8ebf;fontSize=17;fontStyle=1;fontFamily=Microsoft YaHei;fontColor=#243b5a;" vertex="1" parent="1">
+          <mxGeometry x="40" y="270" width="1720" height="230" as="geometry" />
+        </mxCell>
+        <mxCell id="21" value="&lt;b&gt;InventoryView&lt;/b&gt;&#xa;页面协调者 / Controller-like View&#xa;分类、分页、容量文本、Changed 订阅&#xa;Refresh → RefreshByFrame&#xa;取消旧协程；每帧处理 7 件" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;strokeWidth=2;fontSize=15;fontFamily=Microsoft YaHei;fontColor=#183552;arcSize=12;" vertex="1" parent="20">
+          <mxGeometry x="70" y="55" width="470" height="145" as="geometry" />
+        </mxCell>
+        <mxCell id="22" value="&lt;b&gt;InventoryCellView × 28&lt;/b&gt;&#xa;池化格子 / 被 InventoryView 管理&#xa;Bind / Clear / 点击回调&#xa;异步加载 Sprite，bindVersion 防串位&#xa;非堆叠：不显示数量角标" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;strokeWidth=2;fontSize=15;fontFamily=Microsoft YaHei;fontColor=#183552;arcSize=12;" vertex="1" parent="20">
+          <mxGeometry x="650" y="55" width="410" height="145" as="geometry" />
+        </mxCell>
+        <mxCell id="23" value="&lt;b&gt;InventoryDetailView&lt;/b&gt;&#xa;物品详情浮层&#xa;Show / Hide&#xa;展示名称、描述、配置 ID、实例 ID&#xa;异步加载详情图标" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;strokeWidth=2;fontSize=15;fontFamily=Microsoft YaHei;fontColor=#183552;arcSize=12;" vertex="1" parent="20">
+          <mxGeometry x="1180" y="55" width="410" height="145" as="geometry" />
+        </mxCell>
+
+        <mxCell id="30" value="应用入口 / 系统适配层" style="swimlane;startSize=34;horizontal=1;container=1;pointerEvents=0;rounded=1;html=1;fillColor=#ffe6cc;swimlaneFillColor=#ffffff;strokeColor=#d79b00;fontSize=17;fontStyle=1;fontFamily=Microsoft YaHei;fontColor=#6b4500;" vertex="1" parent="1">
+          <mxGeometry x="40" y="520" width="1720" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="31" value="&lt;b&gt;IInventoryService&lt;/b&gt;&#xa;UI 与其他玩法的最小契约&#xa;Initialization / IsReady / Changed&#xa;GetItems / TryAddItem / TryRemoveItem&#xa;Capacity / OccupiedSlots" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;strokeWidth=2;fontSize=15;fontFamily=Microsoft YaHei;fontColor=#6b4500;arcSize=12;" vertex="1" parent="30">
+          <mxGeometry x="180" y="50" width="490" height="105" as="geometry" />
+        </mxCell>
+        <mxCell id="32" value="&lt;b&gt;InventorySystem&lt;/b&gt;&#xa;IGameSystem + IInventoryService 实现&#xa;加载配置、创建 Inventory、注册服务&#xa;把领域 Changed 转发给外部&#xa;当前演示数据：60 个独立物品" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;strokeWidth=2;fontSize=15;fontFamily=Microsoft YaHei;fontColor=#6b4500;arcSize=12;" vertex="1" parent="30">
+          <mxGeometry x="900" y="50" width="520" height="105" as="geometry" />
+        </mxCell>
+
+        <mxCell id="40" value="领域模型（纯 C#，不依赖 MonoBehaviour）" style="swimlane;startSize=34;horizontal=1;container=1;pointerEvents=0;rounded=1;html=1;fillColor=#d5e8d4;swimlaneFillColor=#ffffff;strokeColor=#82b366;fontSize=17;fontStyle=1;fontFamily=Microsoft YaHei;fontColor=#274d22;" vertex="1" parent="1">
+          <mxGeometry x="40" y="720" width="1720" height="230" as="geometry" />
+        </mxCell>
+        <mxCell id="41" value="&lt;b&gt;InventoryItem&lt;/b&gt;&#xa;一件物品 = 一个槽位&#xa;InstanceId：运行时唯一实例&#xa;ConfigId：指向静态配置&#xa;没有 Count，因此当前不堆叠" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;strokeWidth=2;fontSize=15;fontFamily=Microsoft YaHei;fontColor=#274d22;arcSize=12;" vertex="1" parent="40">
+          <mxGeometry x="100" y="55" width="400" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="42" value="&lt;b&gt;Inventory（聚合根）&lt;/b&gt;&#xa;容量规则：0..80，容量不足整次失败&#xa;维护物品列表、唯一实例 ID、配置字典&#xa;按分类缓存 IReadOnlyList&#xa;增删后清空缓存并触发 Changed" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;strokeWidth=2;fontSize=15;fontFamily=Microsoft YaHei;fontColor=#274d22;arcSize=12;" vertex="1" parent="40">
+          <mxGeometry x="740" y="55" width="520" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="43" value="&lt;b&gt;ItemConfig / ItemCategory&lt;/b&gt;&#xa;静态定义，不表示玩家拥有量&#xa;ConfigId / Name / Description&#xa;IconKey / Category&#xa;All 只作为查询条件" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;strokeWidth=2;fontSize=15;fontFamily=Microsoft YaHei;fontColor=#274d22;arcSize=12;" vertex="1" parent="40">
+          <mxGeometry x="1320" y="55" width="330" height="140" as="geometry" />
+        </mxCell>
+
+        <mxCell id="50" value="基础设施 / 外部数据" style="swimlane;startSize=34;horizontal=1;container=1;pointerEvents=0;rounded=1;html=1;fillColor=#e1d5e7;swimlaneFillColor=#ffffff;strokeColor=#9673a6;fontSize=17;fontStyle=1;fontFamily=Microsoft YaHei;fontColor=#3f2b49;" vertex="1" parent="1">
+          <mxGeometry x="40" y="970" width="1720" height="200" as="geometry" />
+        </mxCell>
+        <mxCell id="51" value="&lt;b&gt;ConfigSystem / IConfigService&lt;/b&gt;&#xa;按 tableKey 加载配置表&#xa;反序列化并缓存 ItemConfig" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;strokeWidth=2;fontSize=15;fontFamily=Microsoft YaHei;fontColor=#3f2b49;arcSize=12;" vertex="1" parent="50">
+          <mxGeometry x="90" y="55" width="420" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="52" value="&lt;b&gt;ItemConfig.json&lt;/b&gt;&#xa;8 条演示配置&#xa;Addressables Key：&#xa;config/inventory/items" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=14;fontFamily=Microsoft YaHei;fontColor=#333333;" vertex="1" parent="50">
+          <mxGeometry x="600" y="55" width="280" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="53" value="&lt;b&gt;ResourceSystem / IAssetService&lt;/b&gt;&#xa;Addressables 资源抽象&#xa;LoadAssetAsync&lt;Sprite&gt;(IconKey)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;strokeWidth=2;fontSize=15;fontFamily=Microsoft YaHei;fontColor=#3f2b49;arcSize=12;" vertex="1" parent="50">
+          <mxGeometry x="1010" y="55" width="400" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="54" value="&lt;b&gt;图标资源&lt;/b&gt;&#xa;8 张 Sprite&#xa;inventory/icon/*" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=14;fontFamily=Microsoft YaHei;fontColor=#333333;" vertex="1" parent="50">
+          <mxGeometry x="1500" y="55" width="160" height="110" as="geometry" />
+        </mxCell>
+
+        <mxCell id="60" value="注册 / 获取服务" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#9673a6;fontColor=#3f2b49;fontSize=12;fontFamily=Microsoft YaHei;endArrow=block;endFill=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="12" target="21">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="61" value="查询 / 命令" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#6c8ebf;fontColor=#183552;fontSize=12;fontFamily=Microsoft YaHei;endArrow=block;endFill=1;exitX=0.4;exitY=1;entryX=0.3;entryY=0;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="21" target="31">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="62" value="Changed → Refresh" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#d79b00;fontColor=#6b4500;fontSize=12;fontFamily=Microsoft YaHei;endArrow=block;endFill=1;dashed=1;exitX=0.7;exitY=0;entryX=0.7;entryY=1;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="31" target="21">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="63" value="implements" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#d79b00;fontColor=#6b4500;fontSize=12;fontFamily=Microsoft YaHei;endArrow=block;endFill=0;dashed=1;exitX=0;exitY=0.5;entryX=1;entryY=0.5;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="32" target="31">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="64" value="管理格子池 / Bind" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#6c8ebf;fontColor=#183552;fontSize=12;fontFamily=Microsoft YaHei;endArrow=block;endFill=1;exitX=1;exitY=0.45;entryX=0;entryY=0.45;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="21" target="22">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="65" value="物品点击 → Show" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#6c8ebf;fontColor=#183552;fontSize=12;fontFamily=Microsoft YaHei;endArrow=block;endFill=1;exitX=0.5;exitY=1;entryX=0.5;entryY=1;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="21" target="23">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="345" y="485" />
+              <mxPoint x="1425" y="485" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="66" value="创建 / 生命周期" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#666666;fontColor=#333333;fontSize=12;fontFamily=Microsoft YaHei;endArrow=block;endFill=1;exitX=0;exitY=0.5;entryX=0.5;entryY=0;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="11" target="32">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="20" y="185" />
+              <mxPoint x="20" y="510" />
+              <mxPoint x="1200" y="510" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="68" value="委托查询 / 增删" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#82b366;fontColor=#274d22;fontSize=12;fontFamily=Microsoft YaHei;endArrow=block;endFill=1;exitX=0.42;exitY=1;entryX=0.42;entryY=0;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="32" target="42">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="69" value="Changed" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#82b366;fontColor=#274d22;fontSize=12;fontFamily=Microsoft YaHei;endArrow=block;endFill=1;dashed=1;exitX=0.62;exitY=0;entryX=0.62;entryY=1;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="42" target="32">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="70" value="拥有 0..80 个实例" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#82b366;fontColor=#274d22;fontSize=12;fontFamily=Microsoft YaHei;endArrow=block;endFill=1;startArrow=diamond;startFill=1;exitX=0;exitY=0.5;entryX=1;entryY=0.5;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="42" target="41">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="71" value="ConfigId 引用" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#82b366;fontColor=#274d22;fontSize=12;fontFamily=Microsoft YaHei;endArrow=block;endFill=1;dashed=1;exitX=1;exitY=0.5;entryX=0;entryY=0.5;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="42" target="43">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="72" value="初始化时加载配置" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#9673a6;fontColor=#3f2b49;fontSize=12;fontFamily=Microsoft YaHei;endArrow=block;endFill=1;dashed=1;exitX=0;exitY=0.7;entryX=0.5;entryY=0;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="32" target="51">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="720" y="645" />
+              <mxPoint x="720" y="960" />
+              <mxPoint x="340" y="960" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="73" value="反序列化" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#9673a6;fontColor=#3f2b49;fontSize=12;fontFamily=Microsoft YaHei;endArrow=block;endFill=1;exitX=1;exitY=0.5;entryX=0;entryY=0.5;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="51" target="52">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="74" value="LoadAssetAsync&lt;Sprite&gt;" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#9673a6;fontColor=#3f2b49;fontSize=12;fontFamily=Microsoft YaHei;endArrow=block;endFill=1;dashed=1;exitX=0.5;exitY=0;entryX=0.35;entryY=0;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="22" target="53">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="895" y="260" />
+              <mxPoint x="1700" y="260" />
+              <mxPoint x="1700" y="960" />
+              <mxPoint x="1190" y="960" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="76" value="IconKey → Sprite" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#9673a6;fontColor=#3f2b49;fontSize=12;fontFamily=Microsoft YaHei;endArrow=block;endFill=1;exitX=1;exitY=0.5;entryX=0;entryY=0.5;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="53" target="54">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <mxCell id="80" value="图例" style="text;html=1;align=left;verticalAlign=middle;fontSize=15;fontStyle=1;fontFamily=Microsoft YaHei;fontColor=#333333;" vertex="1" parent="1">
+          <mxGeometry x="50" y="1195" width="70" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="81" value="" style="rounded=1;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="130" y="1200" width="30" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="82" value="表现层" style="text;html=1;align=left;verticalAlign=middle;fontSize=14;fontFamily=Microsoft YaHei;" vertex="1" parent="1">
+          <mxGeometry x="170" y="1195" width="100" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="83" value="" style="rounded=1;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="1">
+          <mxGeometry x="300" y="1200" width="30" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="84" value="应用入口" style="text;html=1;align=left;verticalAlign=middle;fontSize=14;fontFamily=Microsoft YaHei;" vertex="1" parent="1">
+          <mxGeometry x="340" y="1195" width="110" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="85" value="" style="rounded=1;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="480" y="1200" width="30" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="86" value="领域模型" style="text;html=1;align=left;verticalAlign=middle;fontSize=14;fontFamily=Microsoft YaHei;" vertex="1" parent="1">
+          <mxGeometry x="520" y="1195" width="110" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="87" value="" style="rounded=1;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+          <mxGeometry x="660" y="1200" width="30" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="88" value="框架 / 基础设施" style="text;html=1;align=left;verticalAlign=middle;fontSize=14;fontFamily=Microsoft YaHei;" vertex="1" parent="1">
+          <mxGeometry x="700" y="1195" width="160" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="89" value="实线：同步调用或拥有关系　　虚线：事件、实现或异步资源依赖" style="text;html=1;align=left;verticalAlign=middle;fontSize=14;fontFamily=Microsoft YaHei;fontColor=#555555;" vertex="1" parent="1">
+          <mxGeometry x="980" y="1195" width="760" height="30" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

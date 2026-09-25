@@ -16,4 +16,4 @@ MonoBehaviour:
   mainMenuSceneKey: Scene_MainMenu
   enableCatalogUpdate: 1
   enablePreload: 1
-  enableScriptHotUpdate: 1
+  enableScriptHotUpdate: 0

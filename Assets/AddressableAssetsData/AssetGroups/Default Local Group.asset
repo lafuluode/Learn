@@ -46,6 +46,51 @@ MonoBehaviour:
     m_SerializedLabels:
     - preload
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a978214ac982d35448c9bb527c91c1f9
+    m_Address: config/inventory/items
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f03b4278d5f095e43851296e3c0fac90
+    m_Address: inventory/icon/starter_sword
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b4707cc835e15cb4096f00ba1d1d8f7b
+    m_Address: inventory/icon/guard_helmet
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f1d372ac37232af49bda1cdf70b69630
+    m_Address: inventory/icon/health_potion
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: de9d83eb6cf3d3b4eb457e71b8e04214
+    m_Address: inventory/icon/energy_potion
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0cf01a064b87704428cf514314bf559d
+    m_Address: inventory/icon/iron_ore
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6ddffd4d9b9d5e34ca8a386665221199
+    m_Address: inventory/icon/magic_crystal
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0438cffb566c2f141b3d400eb8ad525e
+    m_Address: inventory/icon/map_fragment
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 87ed6041a22bc054f83bcaa180d60c2d
+    m_Address: inventory/icon/commemorative_badge
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: baf98f39c72065f44b1a48018288afc5, type: 2}
   m_SchemaSet:

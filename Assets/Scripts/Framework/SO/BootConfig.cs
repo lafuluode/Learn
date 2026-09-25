@@ -11,7 +11,7 @@ public class BootConfig : ScriptableObject
     [Header("Boot Flow")]
     [SerializeField] private bool enableCatalogUpdate = true;
     [SerializeField] private bool enablePreload = true;
-    [SerializeField] private bool enableScriptHotUpdate = true;
+    [SerializeField] private bool enableScriptHotUpdate = false;
 
     public string PreloadGroupKey => preloadGroupKey;
     public string MainMenuSceneKey => mainMenuSceneKey;

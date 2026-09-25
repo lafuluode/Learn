@@ -1,5 +1,5 @@
 using Game.Framework.Core;
-using Game.Framework.HotUpdate;
+using Game.GamePlay.Inventory;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -41,7 +41,7 @@ namespace Game.Framework.Core
         private bool isShuttingDown;
         List<IGameSystem> gameSystems = new();
         List<IUpdateSystem> updateSystems = new();
-        [SerializeField] private ScriptHotUpdateConfig scriptHotUpdateConfig;
+        [SerializeField] private AudioHost audioHost;
         void RegisterSystem(IGameSystem system)
         {
             if (system == null)
@@ -56,10 +56,10 @@ namespace Game.Framework.Core
         void RegisterSystems()
         {
             RegisterSystem(new ResourceSystem());
-            RegisterSystem(new ScriptHotUpdateSystem(scriptHotUpdateConfig));
             RegisterSystem(new SaveSystem());
             RegisterSystem(new ConfigSystem());
-            RegisterSystem(new AudioSystem());
+            RegisterSystem(new InventorySystem());
+            RegisterSystem(new AudioSystem(audioHost));
         }
         private void Awake()
         {
